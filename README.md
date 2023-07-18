@@ -16,7 +16,13 @@ git clone https://github.com/PodYapolskiy/mydget.git
 npm install
 ```
 
-3. Running
+3. Husky set up
+
+```bash
+npm run prepare
+```
+
+4. Running
 
 ```bash
 npm run dev
