@@ -1,0 +1,24 @@
+{
+    "recommendations": [
+        "formulahendry.auto-close-tag", // auto close tag
+        "formulahendry.auto-rename-tag", // auto rename tag
+        "cweijan.vscode-office", // .md files viewer
+        "christian-kohler.path-intellisense", // intelligent path suggestions
+        "aaron-bond.better-comments", // colours for different type of comments (?, !, *, TODO)
+        "eamodio.gitlens", // extended git view
+        "seatonjiang.gitmoji-vscode", // gitmoji commits
+        "sibiraj-s.vscode-scss-formatter", // scss formatter
+
+        // ESLint
+        "dbaeumer.vscode-eslint",
+
+        // Prettier
+        "esbenp.prettier-vscode",
+
+        // Svelte
+        "svelte.svelte-vscode",
+        "ardenivanov.svelte-intellisense",
+        "fivethree.vscode-svelte-snippets",
+        "pivaszbs.svelte-autoimport"
+    ]
+}
