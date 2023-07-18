@@ -1,3 +1,6 @@
+const WARNING = 'warn';
+const ERROR = 'error';
+
 module.exports = {
     root: true,
     extends: [
@@ -26,5 +29,31 @@ module.exports = {
                 parser: '@typescript-eslint/parser'
             }
         }
-    ]
+    ],
+    rules: {
+        eqeqeq: [ERROR],
+        camelcase: [ERROR, { properties: 'always' }],
+        curly: [ERROR, 'all'],
+        'no-var': [WARNING],
+        'prefer-const': [WARNING],
+        'prefer-regex-literals': [WARNING],
+        'prefer-template': [ERROR],
+        'spaced-comment': [ERROR, 'always'],
+        'arrow-parens': [ERROR, 'always'],
+        'arrow-spacing': [
+            ERROR,
+            {
+                before: true,
+                after: true
+            }
+        ],
+        'block-spacing': [ERROR, 'always'],
+        'brace-style': [ERROR, '1tbs'],
+        'comma-dangle': [ERROR, 'never'],
+        'function-call-argument-newline': [WARNING, 'consistent'],
+        'max-len': [ERROR, { code: 100 }],
+        'padded-blocks': [ERROR, 'never'],
+        quotes: [ERROR, 'single'],
+        semi: [ERROR, 'always']
+    }
 };
