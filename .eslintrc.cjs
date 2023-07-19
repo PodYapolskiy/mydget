@@ -51,7 +51,7 @@ module.exports = {
         'brace-style': [ERROR, '1tbs'],
         'comma-dangle': [ERROR, 'never'],
         'function-call-argument-newline': [WARNING, 'consistent'],
-        'max-len': [ERROR, { code: 100 }],
+        'max-len': [WARNING, { code: 100 }],
         'padded-blocks': [ERROR, 'never'],
         quotes: [ERROR, 'single'],
         semi: [ERROR, 'always']
