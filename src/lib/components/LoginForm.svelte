@@ -12,9 +12,16 @@
     const auth = getAuth();
 
     function login() {
-        const email: string = document.getElementById('emailInput').value;
-        const password: string = document.getElementById('passInput').value;
-        if ('Login' === title) {
+        const emailInput = document.getElementById(
+            'emailInput'
+        ) as HTMLInputElement;
+        const passwordInput = document.getElementById(
+            'passwordInput'
+        ) as HTMLInputElement;
+        const email: string = emailInput.value;
+        const password: string = passwordInput.value;
+
+        if (title === 'Login') {
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in
@@ -69,7 +76,7 @@
                         aria-describedby="emailHelp"
                         placeholder="Email Address"
                     />
-                    {#if 'Login' !== title}
+                    {#if title !== 'Login'}
                         <div id="emailHelp" class="form-text">
                             We'll never share your email with anyone else.
                         </div>
@@ -111,7 +118,7 @@
             </div>
         </form>
 
-        {#if 'Login' === title}
+        {#if title === 'Login'}
             <p class="mt-10 text-center text-sm text-gray-500">
                 Not a member?
                 <a
