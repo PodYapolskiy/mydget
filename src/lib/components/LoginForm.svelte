@@ -49,9 +49,9 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-            class="mx-auto h-10 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
+            class="mx-auto h-32 w-auto"
+            src="/logoWithoutSlogan.png"
+            alt="logo"
         />
         <h2
             class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
@@ -71,12 +71,12 @@
                 <div class="mt-2">
                     <input
                         type="email"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        class="input input-bordered w-full max-w-lg"
                         id="emailInput"
                         aria-describedby="emailHelp"
-                        placeholder="Email Address"
+                        placeholder="test@example.com"
                     />
-                    {#if title !== 'Login'}
+                    {#if 'Login' !== title}
                         <div id="emailHelp" class="form-text">
                             We'll never share your email with anyone else.
                         </div>
@@ -94,7 +94,7 @@
                     <div class="text-sm">
                         <a
                             href="/resetPassword"
-                            class="font-semibold text-indigo-600 hover:text-indigo-500"
+                            class="font-semibold text-accent-focus hover:text-success"
                             >Forgot password?</a
                         >
                     </div>
@@ -102,31 +102,34 @@
                 <div class="mt-2">
                     <input
                         type="password"
-                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        class="input input-bordered w-full max-w-lg"
                         id="passInput"
-                        placeholder="Password"
+                        placeholder="qwerty123"
                     />
                 </div>
             </div>
 
             <div>
-                <button
-                    type="submit"
-                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                <button type="submit" class="font-bold btn btn-accent btn-block"
                     >Sign in</button
                 >
             </div>
         </form>
-
         {#if title === 'Login'}
             <p class="mt-10 text-center text-sm text-gray-500">
                 Not a member?
                 <a
                     href="/signup"
-                    class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                    class="font-semibold text-accent-focus hover:text-success"
                     >Sign Up</a
                 >
             </p>
         {/if}
     </div>
 </div>
+
+<style>
+    .btn-accent {
+        background-color: #64e3b1;
+    }
+</style>
