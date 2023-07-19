@@ -1,5 +1,5 @@
 <script>
-    import LoginForm from '../../../../skeletontest/src/lib/components/login/loginForm/+page.svelte';
+    import LoginForm from '$lib/components/LoginForm.svelte';
 </script>
 
 <LoginForm title="Sign Up" />

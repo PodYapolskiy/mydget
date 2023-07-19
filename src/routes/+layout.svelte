@@ -4,7 +4,7 @@
     import { onMount } from 'svelte';
     import { getAuth, onAuthStateChanged } from 'firebase/auth';
     import { goto } from '$app/navigation.js';
-    import Navbar from '../lib/components/layout/navbar/+page.svelte';
+    import Navbar from '$lib/components/Navbar.svelte';
 
     onMount(() => {
         const auth = getAuth();
