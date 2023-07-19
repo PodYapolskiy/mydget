@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import '../app.css';
     import App from './fb.js';
     import { onMount } from 'svelte';
