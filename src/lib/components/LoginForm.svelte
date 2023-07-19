@@ -16,7 +16,7 @@
             'emailInput'
         ) as HTMLInputElement;
         const passwordInput = document.getElementById(
-            'passwordInput'
+            'passInput'
         ) as HTMLInputElement;
         const email: string = emailInput.value;
         const password: string = passwordInput.value;
