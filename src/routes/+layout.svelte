@@ -1,6 +1,5 @@
 <script lang="ts">
     import '../app.css';
-    import App from './fb';
     import { onMount } from 'svelte';
     import { getAuth, onAuthStateChanged } from 'firebase/auth';
     import { goto } from '$app/navigation';
