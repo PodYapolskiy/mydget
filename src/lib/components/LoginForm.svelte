@@ -4,7 +4,9 @@
     import {
         getAuth,
         signInWithEmailAndPassword,
-        createUserWithEmailAndPassword
+        createUserWithEmailAndPassword,
+        GoogleAuthProvider,
+        signInWithPopup
     } from 'firebase/auth';
 
     export let title: string;
@@ -44,20 +46,45 @@
                 });
         }
     }
+
+    function googleLogin() {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential =
+                    GoogleAuthProvider.credentialFromResult(result);
+                const token = credential?.accessToken;
+                const user = result.user;
+                console.log(token, user);
+                goto('/');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.email;
+                const credential =
+                    GoogleAuthProvider.credentialFromError(error);
+                console.log(errorCode, errorMessage, email, credential);
+            });
+    }
 </script>
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-            class="mx-auto h-32 w-auto"
+            class="mx-auto mb-0 h-32 w-auto"
             src="/logoWithoutSlogan.png"
             alt="logo"
         />
-        <h2
-            class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
-        >
-            Sign in to your account
-        </h2>
+        {#if title === 'Login'}
+            <h2 class="mt-5 text-center text-2xl font-bold text-gray-900">
+                Sign in to your account
+            </h2>
+        {:else}
+            <h2 class="mt-5 text-center text-2xl font-bold text-gray-900">
+                Create an account
+            </h2>
+        {/if}
     </div>
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -76,7 +103,7 @@
                         aria-describedby="emailHelp"
                         placeholder="test@example.com"
                     />
-                    {#if 'Login' !== title}
+                    {#if title !== 'Login'}
                         <div id="emailHelp" class="form-text">
                             We'll never share your email with anyone else.
                         </div>
@@ -91,13 +118,15 @@
                         class="block text-sm font-medium leading-6 text-gray-900"
                         >Password</label
                     >
-                    <div class="text-sm">
-                        <a
-                            href="/resetPassword"
-                            class="font-semibold text-accent-focus hover:text-success"
-                            >Forgot password?</a
-                        >
-                    </div>
+                    {#if title === 'Login'}
+                        <div class="text-sm">
+                            <a
+                                href="/resetPassword"
+                                class="font-semibold text-accent-focus hover:text-success"
+                                >Forgot password?</a
+                            >
+                        </div>
+                    {/if}
                 </div>
                 <div class="mt-2">
                     <input
@@ -109,11 +138,36 @@
                 </div>
             </div>
 
-            <div>
-                <button type="submit" class="font-bold btn btn-accent btn-block"
-                    >Sign in</button
-                >
-            </div>
+            {#if title !== 'Login'}
+                <div>
+                    <button
+                        type="submit"
+                        class="font-bold btn btn-accent btn-block"
+                        >Create account</button
+                    >
+                </div>
+            {:else}
+                <div>
+                    <button
+                        type="submit"
+                        class="font-bold btn btn-accent btn-block"
+                        >Sign in</button
+                    >
+                </div>
+                <div>
+                    <button
+                        type="button"
+                        class="font-bold btn btn-block"
+                        on:click={googleLogin}
+                        >Sign in with Google
+                        <img
+                            src="/GoogleGLogo.svg.png"
+                            alt="googlelogo"
+                            class="w-5 h-5"
+                        /></button
+                    >
+                </div>
+            {/if}
         </form>
         {#if title === 'Login'}
             <p class="mt-10 text-center text-sm text-gray-500">
@@ -122,6 +176,15 @@
                     href="/signup"
                     class="font-semibold text-accent-focus hover:text-success"
                     >Sign Up</a
+                >
+            </p>
+        {:else}
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Already a member?
+                <a
+                    href="/login"
+                    class="font-semibold text-accent-focus hover:text-success"
+                    >Sign In</a
                 >
             </p>
         {/if}
