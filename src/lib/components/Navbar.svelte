@@ -30,6 +30,10 @@
                             aria-current="page">Home</a
                         >
                         <a
+                            href="/transactions"
+                            class="btn btn-active btn-neutral">Transactions</a
+                        >
+                        <a
                             href="/"
                             class="btn btn-active btn-neutral"
                             on:click|preventDefault={logout}
