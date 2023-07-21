@@ -37,9 +37,15 @@
         </h2>
     </div>
 
-    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div class="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
         <form class="space-y-6" on:submit|preventDefault={resetPassword}>
             <div>
+                {#if 'Login' !== title}
+                    <div id="emailHelp " class="form-text mb-4">
+                        Provide your email address, and we'll send you a
+                        password reset link
+                    </div>
+                {/if}
                 <label
                     for="emailInput"
                     class="block text-sm font-medium leading-6 text-gray-900"
@@ -53,16 +59,12 @@
                         aria-describedby="emailHelp"
                         placeholder="test@example.com"
                     />
-                    {#if 'Login' !== title}
-                        <div id="emailHelp" class="form-text">
-                            Write your email address and we will send you a link
-                            to reset your password.
-                        </div>
-                    {/if}
                 </div>
             </div>
             <div>
-                <button type="submit" class="font-bold btn btn-accent btn-block"
+                <button
+                    type="submit"
+                    class="font-bold text-white btn btn-accent btn-block"
                     >Reset
                 </button>
             </div>
@@ -72,7 +74,7 @@
         Remember your password?
         <a
             href="/login"
-            class="font-semibold text-accent-focus hover:text-success"
+            class="font-semibold text-accent-focus hover:text-success custom-color"
             >Sign In</a
         >
     </p>
@@ -80,6 +82,9 @@
 
 <style>
     .btn-accent {
-        background-color: #64e3b1;
+        background-color: #40a759;
+    }
+    .custom-color {
+        color: #40a759;
     }
 </style>

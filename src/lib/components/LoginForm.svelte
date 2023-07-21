@@ -131,7 +131,7 @@
                         <div class="text-sm">
                             <a
                                 href="/resetPassword"
-                                class="font-semibold text-accent-focus hover:text-success"
+                                class="font-semibold custom-color hover:text-success"
                                 >Forgot password?</a
                             >
                         </div>
@@ -159,7 +159,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="font-bold btn btn-accent btn-block"
+                        class="font-bold btn text-white custom-background btn-block"
                         >Sign in</button
                     >
                 </div>
@@ -183,7 +183,7 @@
                 Not a member?
                 <a
                     href="/signup"
-                    class="font-semibold text-accent-focus hover:text-success"
+                    class="font-semibold custom-color hover:text-success"
                     >Sign Up</a
                 >
             </p>
@@ -192,7 +192,7 @@
                 Already a member?
                 <a
                     href="/login"
-                    class="font-semibold text-accent-focus hover:text-success"
+                    class="font-semibold custom-color hover:text-success"
                     >Sign In</a
                 >
             </p>
@@ -201,7 +201,10 @@
 </div>
 
 <style>
-    .btn-accent {
-        background-color: #64e3b1;
+    .custom-background {
+        background-color: #40a759;
+    }
+    .custom-color {
+        color: #40a759;
     }
 </style>
