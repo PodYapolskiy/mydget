@@ -34,11 +34,6 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center mt-4">
-        <p style="color: #af3a1b; font-weight: bold">
-            Additionally: GitHub, ESLint, Prettier, VSCode
-        </p>
-    </div>
 </div>
 
 <style>
