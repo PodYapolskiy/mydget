@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { db } from '../fb';
+    import { db } from '$lib/fb';
     import { collection, getDocs } from 'firebase/firestore';
     import { onMount } from 'svelte';
 

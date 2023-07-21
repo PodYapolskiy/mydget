@@ -9,7 +9,7 @@
         signInWithPopup
     } from 'firebase/auth';
     import { addDoc, collection } from 'firebase/firestore';
-    import { db } from '../../routes/fb';
+    import { db } from '$lib/fb';
 
     export let title: string;
 
