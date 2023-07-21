@@ -59,9 +59,8 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                const credential = GoogleAuthProvider.credentialFromResult(
-                    result
-                );
+                const credential =
+                    GoogleAuthProvider.credentialFromResult(result);
                 const token = credential?.accessToken;
                 const user = result.user;
                 console.log(user);
