@@ -8,8 +8,7 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    import { onMount } from 'svelte';
-    import { getDocs, addDoc, collection } from 'firebase/firestore';
+    import { addDoc, collection } from 'firebase/firestore';
     import { db } from '../../routes/fb';
 
     export let title: string;
@@ -60,35 +59,22 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                const credential =
-                    GoogleAuthProvider.credentialFromResult(result);
-                const token = credential?.accessToken;
+                const credential = GoogleAuthProvider.credentialFromResult(
+                    result
+                );
+                const token = credential.accessToken;
                 const user = result.user;
-                console.log(token, user);
-
-                onMount(async () => {
-                    try {
-                        const docRef = await addDoc(collection(db, 'users'), {
-                            email: user.email,
-                            // eslint-disable-next-line camelcase
-                            user_uuid: user.uid
-                        });
-
-                        console.log('Document written with ID: ', docRef.id);
-                    } catch (e) {
-                        console.error('Error adding document: ', e);
-                    }
+                console.log(user);
+                const docRef = addDoc(collection(db, 'users'), {
+                    email: user.email,
+                    // eslint-disable-next-line camelcase
+                    user_uuid: user.uid
                 });
-
+                localStorage.setItem('uid', user.uid);
                 goto('/');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.email;
-                const credential =
-                    GoogleAuthProvider.credentialFromError(error);
-                console.log(errorCode, errorMessage, email, credential);
+                console.log(error);
             });
     }
 </script>
