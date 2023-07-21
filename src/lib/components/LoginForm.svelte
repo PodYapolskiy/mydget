@@ -8,6 +8,8 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
+    import { addDoc, collection } from 'firebase/firestore';
+    import { db } from '../../routes/fb';
 
     export let title: string;
 
@@ -39,6 +41,12 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
+                    const docRef = addDoc(collection(db, 'users'), {
+                        email: user.email,
+                        // eslint-disable-next-line camelcase
+                        user_uuid: user.uid
+                    });
+
                     goto('/');
                 })
                 .catch((error) => {
@@ -51,20 +59,22 @@
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                const credential =
-                    GoogleAuthProvider.credentialFromResult(result);
-                const token = credential?.accessToken;
+                const credential = GoogleAuthProvider.credentialFromResult(
+                    result
+                );
+                const token = credential.accessToken;
                 const user = result.user;
-                console.log(token, user);
+                console.log(user);
+                const docRef = addDoc(collection(db, 'users'), {
+                    email: user.email,
+                    // eslint-disable-next-line camelcase
+                    user_uuid: user.uid
+                });
+                localStorage.setItem('uid', user.uid);
                 goto('/');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.email;
-                const credential =
-                    GoogleAuthProvider.credentialFromError(error);
-                console.log(errorCode, errorMessage, email, credential);
+                console.log(error);
             });
     }
 </script>
