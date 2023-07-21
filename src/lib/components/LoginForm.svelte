@@ -8,6 +8,9 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
+    import { onMount } from 'svelte';
+    import { getDocs, addDoc, collection } from 'firebase/firestore';
+    import { db } from '../../routes/fb';
 
     export let title: string;
 
@@ -39,6 +42,12 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
+                    const docRef = addDoc(collection(db, 'users'), {
+                        email: user.email,
+                        // eslint-disable-next-line camelcase
+                        user_uuid: user.uid
+                    });
+
                     goto('/');
                 })
                 .catch((error) => {
@@ -56,6 +65,21 @@
                 const token = credential?.accessToken;
                 const user = result.user;
                 console.log(token, user);
+
+                onMount(async () => {
+                    try {
+                        const docRef = await addDoc(collection(db, 'users'), {
+                            email: user.email,
+                            // eslint-disable-next-line camelcase
+                            user_uuid: user.uid
+                        });
+
+                        console.log('Document written with ID: ', docRef.id);
+                    } catch (e) {
+                        console.error('Error adding document: ', e);
+                    }
+                });
+
                 goto('/');
             })
             .catch((error) => {

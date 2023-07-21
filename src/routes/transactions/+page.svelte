@@ -1,3 +1,20 @@
+<script lang="ts">
+    import { db } from '../fb';
+    import { collection, getDocs } from 'firebase/firestore';
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        try {
+            const querySnapshot = await getDocs(collection(db, 'transactions'));
+            querySnapshot.forEach((doc) => {
+                console.log(`${doc.id} => ${doc.data()}`);
+            });
+        } catch (error) {
+            console.error('Error fetching transactions:', error);
+        }
+    });
+</script>
+
 <div class="stats shadow center-top">
     <div class="stat">
         <div class="stat-figure text-accent">
