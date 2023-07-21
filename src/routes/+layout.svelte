@@ -5,6 +5,7 @@
     import { getAuth, onAuthStateChanged } from 'firebase/auth';
     import { goto } from '$app/navigation';
     import Navbar from '$lib/components/Navbar.svelte';
+    import Footer from '$lib/components/Footer.svelte';
 
     onMount(() => {
         const auth = getAuth();
@@ -21,3 +22,5 @@
 <Navbar />
 
 <slot />
+
+<Footer />
