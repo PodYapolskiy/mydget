@@ -64,7 +64,7 @@
             <div>
                 <button
                     type="submit"
-                    class="font-bold text-white btn btn-accent btn-block"
+                    class="font-bold btn text-white custom-background btn-block"
                     >Reset
                 </button>
             </div>
@@ -81,7 +81,7 @@
 </div>
 
 <style>
-    .btn-accent {
+    .custom-background {
         background-color: #40a759;
     }
     .custom-color {

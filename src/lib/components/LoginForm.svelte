@@ -112,11 +112,6 @@
                         aria-describedby="emailHelp"
                         placeholder="test@example.com"
                     />
-                    {#if title !== 'Login'}
-                        <div id="emailHelp" class="form-text">
-                            We'll never share your email with anyone else.
-                        </div>
-                    {/if}
                 </div>
             </div>
 
@@ -124,7 +119,7 @@
                 <div class="flex items-center justify-between">
                     <label
                         for="passInput"
-                        class="block text-sm font-medium leading-6 text-gray-900"
+                        class="block text-sm font-medium text-gray-900"
                         >Password</label
                     >
                     {#if title === 'Login'}
@@ -151,7 +146,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="font-bold btn btn-accent btn-block"
+                        class="font-bold btn text-white custom-background btn-block"
                         >Create account</button
                     >
                 </div>
