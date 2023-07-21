@@ -2,6 +2,42 @@
     import { db } from '../fb';
     import { collection, getDocs } from 'firebase/firestore';
     import { onMount } from 'svelte';
+    import { writable } from 'svelte/store';
+    import { readable } from 'svelte/store';
+    import type { Transaction } from '../types';
+
+    let amount = 0;
+    let category = '';
+    let time = '';
+
+    // Temporary storage for transactions
+    const transactions = writable<Transaction[]>([]);
+
+    function handleSubmit() {
+        // Data validation
+        if (amount <= 0 || !category || !time) {
+            alert('Please fill in all fields with valid data.');
+            return;
+        }
+
+        // Create a new transaction object
+        const newTransaction: Transaction = {
+            amount,
+            category,
+            time
+        };
+
+        // Update the transactions store
+        transactions.update((prevTransactions) => [
+            ...prevTransactions,
+            newTransaction
+        ]);
+
+        // Clear form inputs
+        amount = 0;
+        category = '';
+        time = '';
+    }
 
     onMount(async () => {
         try {
@@ -14,6 +50,35 @@
         }
     });
 </script>
+
+<main>
+    <h1 class="font-bold text-6xl text-left text-gray-800 m-96">
+        Add Transaction
+    </h1>
+    <form on:submit|preventDefault={handleSubmit}>
+        <label>
+            Amount:
+            <input type="number" bind:value={amount} step="0.01" />
+        </label>
+        <label>
+            Category:
+            <input type="text" bind:value={category} />
+        </label>
+        <label>
+            Time:
+            <input type="datetime-local" bind:value={time} />
+        </label>
+        <button type="submit">Add Transaction</button>
+    </form>
+    <h1>Transactions</h1>
+    {#each $transactions as transaction}
+        <div>
+            <p>Amount: {transaction.amount}</p>
+            <p>Category: {transaction.category}</p>
+            <p>Time: {transaction.time}</p>
+        </div>
+    {/each}
+</main>
 
 <div class="stats shadow center-top">
     <div class="stat">
