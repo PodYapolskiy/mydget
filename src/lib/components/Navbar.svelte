@@ -29,6 +29,7 @@
                 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
             >
                 <li><a href="/">Home</a></li>
+                <li><a href="./about">About</a></li>
                 <li><a href="/transactions">Transactions</a></li>
             </ul>
         </div>
@@ -47,12 +48,12 @@
                         z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                     >
                         <li>
-                            <a href="#!" class="justify-between">
+                            <a href=" " class="justify-between">
                                 Profile
                                 <span class="badge">New</span>
                             </a>
                         </li>
-                        <li><a href="#!">Settings</a></li>
+                        <li><a href=" ">Settings</a></li>
                         <li>
                             <a
                                 href="/"
