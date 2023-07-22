@@ -8,8 +8,8 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    import { addDoc, collection } from 'firebase/firestore';
-    import { db } from '$lib/fb';
+    // import { addDoc, collection } from 'firebase/firestore';
+    // import { db } from '$lib/fb';
 
     export let title: string;
 
@@ -41,11 +41,11 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    const docRef = addDoc(collection(db, 'users'), {
-                        email: user.email,
-                        // eslint-disable-next-line camelcase
-                        user_uuid: user.uid
-                    });
+                    // const docRef = addDoc(collection(db, 'users'), {
+                    //     email: user.email,
+                    //     // eslint-disable-next-line camelcase
+                    //     user_uuid: user.uid
+                    // });
 
                     goto('/');
                 })
@@ -62,13 +62,15 @@
                 const credential =
                     GoogleAuthProvider.credentialFromResult(result);
                 const token = credential?.accessToken; // check for error when token is used
+                console.log(token);
+
                 const user = result.user;
                 console.log(user);
-                const docRef = addDoc(collection(db, 'users'), {
-                    email: user.email,
-                    // eslint-disable-next-line camelcase
-                    user_uuid: user.uid
-                });
+                // const docRef = addDoc(collection(db, 'users'), {
+                //     email: user.email,
+                //     // eslint-disable-next-line camelcase
+                //     user_uuid: user.uid
+                // });
                 localStorage.setItem('uid', user.uid);
                 goto('/');
             })
