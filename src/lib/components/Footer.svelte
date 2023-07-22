@@ -29,9 +29,7 @@
 </footer>
 
 <style>
-    /* .bg-gray-800 {
-        background-color: #3C6E71;
-        font-family: Helvetica;
-        font-weight: 200px;
-    } */
+    .bg-gray-800 {
+        background-color: #005c3b;
+    }
 </style>

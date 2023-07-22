@@ -1,34 +1,55 @@
-<div class="flex max-w-5xl mx-auto py-8 items-start justify-center">
-    <div class="max-w-2xl custom-font">
-        <h1 class="font-bold text-6xl text-left text-gray-800">
-            MASTER BUDGETING, <br /> MASTER LIFE
-        </h1>
-        <p class="text-gray-600 text-3xl mt-4 mb-1">
-            Take charge of your finances and witness positive transformations in
-            just
-            <span class="custom-color font-semibold"> one week</span>
-        </p>
+<script>
+    import picture from '../images/home_img/welcome.jpg';
+</script>
 
-        <button class="btn w-96 mt-14 custom-button">Get Started</button>
+<section class="welcome">
+    <div class="wrapper">
+        <div class="text">Let's get acquainted!</div>
     </div>
-    <img
-        src="/welcomePicture.jpg"
-        alt="Logo"
-        class="h-80 w-80 object-cover ml-4"
-    />
-</div>
+    <img class="welcome_img" src={picture} alt="welcome" />
+</section>
 
 <style>
-    .custom-color {
-        color: #af3a1b;
+    .welcome_img {
+        position: relative;
+        left: 980px;
+        width: 450px;
     }
-    .custom-font {
-        font-family: Helvetica, Arial, sans-serif; /* Replace with your desired font stack */
+
+    .wrapper {
+        display: flex;
+        position: absolute;
+        margin: 200px 150px;
     }
-    .custom-button {
-        color: #000000;
-        font-size: large;
-        font-weight: bold;
-        background-color: #d87355;
+
+    .text {
+        width: 18ch;
+        color: black;
+        font-size: 70px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 3px solid white;
+        animation: cursor 1.8s step-end, printed_text 1s steps(29);
+    }
+
+    @keyframes cursor {
+        0% {
+            border-color: black;
+        }
+
+        50% {
+            border-color: transparent;
+        }
+
+        100% {
+            border-color: black;
+        }
+    }
+
+    @keyframes printed_text {
+        from {
+            width: 0;
+        }
     }
 </style>
