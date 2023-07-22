@@ -42,6 +42,7 @@
     },
     "type": "module",
     "lint-staged": {
-        "*.{js,ts,svelte}": "eslint"
+        "*.{js,ts,svelte,json}": "eslint",
+        "!package-lock.json": ""
     }
 }
