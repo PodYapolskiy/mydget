@@ -14,16 +14,22 @@
             </div>
             <div>
                 <ul class="flex space-x-4">
-                    <li><a href="#!" class="hover:text-gray-300">Home</a></li>
-                    <li><a href="#!" class="hover:text-gray-300">About</a></li>
+                    <li><a href=" " class="hover:text-gray-300">Home</a></li>
+                    <li><a href=" " class="hover:text-gray-300">About</a></li>
                     <li>
-                        <a href="#!" class="hover:text-gray-300">Services</a>
+                        <a href=" " class="hover:text-gray-300">Services</a>
                     </li>
                     <li>
-                        <a href="#!" class="hover:text-gray-300">Contact</a>
+                        <a href=" " class="hover:text-gray-300">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    .bg-gray-800 {
+        background-color: #005c3b;
+    }
+</style>

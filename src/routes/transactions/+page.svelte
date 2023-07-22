@@ -54,7 +54,7 @@
             >
         </div>
         <div class="stat-title">Wallet</div>
-        <div class="stat-value">$31000</div>
+        <div class="stat-value">$400</div>
         <div class="stat-desc">Jan 1st - Feb 1st</div>
     </div>
 
