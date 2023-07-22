@@ -1,14 +1,36 @@
 <script lang="ts">
-    import { db } from '../fb';
-    import { collection, getDocs } from 'firebase/firestore';
+    import { db } from '$lib/fb';
+    import { doc, collection, getDoc, getDocs } from 'firebase/firestore';
     import { onMount } from 'svelte';
+    import Transaction from '$lib/components/Transaction.svelte';
+    import type { TransactionType } from '$lib/types';
 
+    let currentTransactions: TransactionType[] = [];
     onMount(async () => {
         try {
-            const querySnapshot = await getDocs(collection(db, 'transactions'));
-            querySnapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+            const userID = 'rt3bWUYTLYA08n8pL7xq';
+
+            const userRef = doc(db, `users/${userID}`);
+            const user = await getDoc(userRef);
+            console.log(user.get('email'));
+
+            const transactionsRef = collection(
+                db,
+                `users/${userID}/transactions`
+            );
+
+            const transactions = await getDocs(transactionsRef);
+            transactions.forEach((doc) => {
+                const transaction = {
+                    id: doc.id,
+                    date: doc.get('date'),
+                    amount: doc.get('amount'),
+                    category: doc.get('category')
+                } satisfies TransactionType;
+                currentTransactions.push(transaction);
             });
+
+            currentTransactions = currentTransactions;
         } catch (error) {
             console.error('Error fetching transactions:', error);
         }
@@ -78,3 +100,8 @@
         <div class="stat-desc">↘︎ 90 (14%)</div>
     </div>
 </div>
+
+<!-- Display the list of transactions -->
+{#each currentTransactions as { id, date, amount, category }}
+    <Transaction {id} {date} {amount} {category} />
+{/each}

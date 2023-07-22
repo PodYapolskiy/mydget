@@ -8,9 +8,8 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-
-    import { addDoc, collection } from 'firebase/firestore';
-    import { db } from '../../routes/fb';
+    // import { addDoc, collection } from 'firebase/firestore';
+    // import { db } from '$lib/fb';
 
     export let title: string;
 
@@ -42,11 +41,11 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    const docRef = addDoc(collection(db, 'users'), {
-                        email: user.email,
-                        // eslint-disable-next-line camelcase
-                        user_uuid: user.uid
-                    });
+                    // const docRef = addDoc(collection(db, 'users'), {
+                    //     email: user.email,
+                    //     // eslint-disable-next-line camelcase
+                    //     user_uuid: user.uid
+                    // });
 
                     goto('/');
                 })
@@ -62,14 +61,16 @@
             .then((result) => {
                 const credential =
                     GoogleAuthProvider.credentialFromResult(result);
-                const token = credential?.accessToken;
+                const token = credential?.accessToken; // check for error when token is used
+                console.log(token);
+
                 const user = result.user;
                 console.log(user);
-                const docRef = addDoc(collection(db, 'users'), {
-                    email: user.email,
-                    // eslint-disable-next-line camelcase
-                    user_uuid: user.uid
-                });
+                // const docRef = addDoc(collection(db, 'users'), {
+                //     email: user.email,
+                //     // eslint-disable-next-line camelcase
+                //     user_uuid: user.uid
+                // });
                 localStorage.setItem('uid', user.uid);
                 goto('/');
             })
@@ -113,11 +114,6 @@
                         aria-describedby="emailHelp"
                         placeholder="test@example.com"
                     />
-                    {#if title !== 'Login'}
-                        <div id="emailHelp" class="form-text">
-                            We'll never share your email with anyone else.
-                        </div>
-                    {/if}
                 </div>
             </div>
 
@@ -125,14 +121,14 @@
                 <div class="flex items-center justify-between">
                     <label
                         for="passInput"
-                        class="block text-sm font-medium leading-6 text-gray-900"
+                        class="block text-sm font-medium text-gray-900"
                         >Password</label
                     >
                     {#if title === 'Login'}
                         <div class="text-sm">
                             <a
                                 href="/resetPassword"
-                                class="font-semibold text-accent-focus hover:text-success"
+                                class="font-semibold custom-color hover:text-success"
                                 >Forgot password?</a
                             >
                         </div>
@@ -152,7 +148,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="font-bold btn btn-accent btn-block"
+                        class="font-bold btn text-white custom-background btn-block"
                         >Create account</button
                     >
                 </div>
@@ -160,7 +156,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="font-bold btn btn-accent btn-block"
+                        class="font-bold btn text-white custom-background btn-block"
                         >Sign in</button
                     >
                 </div>
@@ -184,7 +180,7 @@
                 Not a member?
                 <a
                     href="/signup"
-                    class="font-semibold text-accent-focus hover:text-success"
+                    class="font-semibold custom-color hover:text-success"
                     >Sign Up</a
                 >
             </p>
@@ -193,7 +189,7 @@
                 Already a member?
                 <a
                     href="/login"
-                    class="font-semibold text-accent-focus hover:text-success"
+                    class="font-semibold custom-color hover:text-success"
                     >Sign In</a
                 >
             </p>
@@ -202,7 +198,10 @@
 </div>
 
 <style>
-    .btn-accent {
-        background-color: #64e3b1;
+    .custom-background {
+        background-color: #40a759;
+    }
+    .custom-color {
+        color: #40a759;
     }
 </style>
