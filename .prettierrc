@@ -5,7 +5,7 @@
     "singleQuote": true,
     "bracketSpacing": true,
     "bracketSameLine": false,
-    "endOfLine": "crlf",
+    "endOfLine": "auto",
     "arrowParens": "always",
     "trailingComma": "none",
     "printWidth": 80,
