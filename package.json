@@ -44,5 +44,8 @@
     "lint-staged": {
         "*.{js,ts,svelte,json} !package-lock.json": "prettier --plugin-search-dir . --check . && eslint . ",
         "*.{svelte}": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+    },
+    "dependencies": {
+        "date-fns": "^2.30.0"
     }
 }
