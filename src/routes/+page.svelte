@@ -124,6 +124,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Fill out your transactions every day
@@ -136,6 +139,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use a categorization system for your
@@ -149,6 +155,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use philtres and add usefull description
@@ -170,6 +179,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Analyze your finance with beautiful, simple and
@@ -183,6 +195,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >See where your money goes and where they come
@@ -196,6 +211,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >See whether you spend less than you earn in one
@@ -218,6 +236,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use the six-jags system
@@ -230,6 +251,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Fill up your wish list
@@ -242,6 +266,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Increase your income, not cut your expenses
