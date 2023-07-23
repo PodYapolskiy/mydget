@@ -16,7 +16,7 @@
         </div>
         <div class="stat-title font-bold custom-color3">Wallet</div>
         <div class="stat-value">
-            <span class="custom-color4">$</span>31900
+            31900 <span class="custom-color4">₽</span>
         </div>
         <div class="stat-desc font-bold custom-color3">Jan 1st - Feb 1st</div>
     </div>
@@ -39,7 +39,7 @@
         </div>
         <div class="stat-title custom-color3 font-bold">Income</div>
         <div class="stat-value">
-            <span class="custom-color">$</span>4560
+            4560 <span class="custom-color">₽</span>
         </div>
         <div class="stat-desc custom-color3 font-bold">⬈ 400 (22%)</div>
     </div>
@@ -62,7 +62,7 @@
         </div>
         <div class="stat-title custom-color3 font-bold">Expenses</div>
         <div class="stat-value">
-            <span class="custom-color2">$</span>1200
+            1200 <span class="custom-color2">₽</span>
         </div>
         <div class="stat-desc custom-color3 font-bold">⬊ 90 (14%)</div>
     </div>
