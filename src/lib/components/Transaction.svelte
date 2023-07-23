@@ -1,20 +1,11 @@
 <script lang="ts">
+    import format from 'date-fns/format';
     export let id: string;
     export let amount: number;
     export let category: string;
     export let date: Date;
 
-    const timestamp = {
-        seconds: 1689858000,
-        nanoseconds: 240000000
-    };
-
-    function formatTimestamp() {
-        date = new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1e6);
-        return date.toLocaleString();
-    }
-
-    const transactionPath = `/transactions/${id}`;
+    const stringDate = format(date, 'dd.MM.yyyy');
 </script>
 
 <tr class="hover">
@@ -40,7 +31,7 @@
         <br />
         <span class="badge badge-ghost badge-sm">{id}</span>
     </td>
-    <td>{formatTimestamp()}</td>
+    <td>{stringDate}</td>
     <th>
         <a href={transactionPath}>
             <button class="btn btn-ghost btn-xs">edit</button>
