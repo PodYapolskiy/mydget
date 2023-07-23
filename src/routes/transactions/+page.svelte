@@ -112,8 +112,8 @@
                     </label>
                 </th>
                 <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
+                <th>Amount</th>
+                <th>Date</th>
                 <th />
             </tr>
         </thead>

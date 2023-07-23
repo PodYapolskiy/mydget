@@ -3,6 +3,16 @@
     export let amount: number;
     export let category: string;
     export let date: Date;
+
+    const timestamp = {
+        seconds: 1689858000,
+        nanoseconds: 240000000
+    };
+
+    function formatTimestamp() {
+        date = new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1e6);
+        return date.toLocaleString();
+    }
 </script>
 
 <tr class="hover">
@@ -28,7 +38,7 @@
         <br />
         <span class="badge badge-ghost badge-sm">{id}</span>
     </td>
-    <td>{date}</td>
+    <td>{formatTimestamp()}</td>
     <th>
         <button class="btn btn-ghost btn-xs">details</button>
     </th>
