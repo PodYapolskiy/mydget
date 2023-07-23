@@ -5,27 +5,27 @@
 <section class="bg-slate-50 tech_stack">
     <div class="flex flex-row font-bold text-xl mb-3 progress-block">
         <div class="font-bold text-xl mb-3">
-            <p>Technological Stack</p>
+            <h1>Technological Stack</h1>
             <div class="flex flex-col items-center">
                 <div class="mb-2">
                     <p>Svelte</p>
-                    <progress class="progress w-96 h-5" value="0" max="100" />
+                    <progress class="progress w-96 h-5" value="85" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>TypeScript</p>
-                    <progress class="progress w-96 h-5" value="100" max="100" />
+                    <progress class="progress w-96 h-5" value="9" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>JavaScript</p>
-                    <progress class="progress w-96 h-5" value="40" max="100" />
+                    <progress class="progress w-96 h-5" value="5" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>HTML</p>
-                    <progress class="progress w-96 h-5" value="70" max="100" />
+                    <progress class="progress w-96 h-5" value="2" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>CSS</p>
-                    <progress class="progress w-96 h-5" value="100" max="100" />
+                    <progress class="progress w-96 h-5" value="2" max="100" />
                 </div>
             </div>
         </div>
@@ -41,8 +41,13 @@
         margin-top: 20px;
     }
 
+    .progress-block h1 {
+        font-size: 40px;
+        text-align: center;
+        padding-bottom: 15px;
+        color: #007349;
+    }
     .tech_stack {
-        margin-top: 30px;
         display: flex;
         justify-content: space-between;
         column-gap: 100px;

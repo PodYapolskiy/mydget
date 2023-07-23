@@ -1,12 +1,11 @@
 <script>
-    // Replace this data with your team members' information
     const teamMembers = [
         {
             name: 'Daniil',
             surname: 'Prostiruk',
             position: 'CEO',
             bio: 'Mango Tea enjoyer',
-            image: '/dprost.jpg' // Replace with the path to the image
+            image: '/dprost.jpg'
         },
 
         {
@@ -14,7 +13,7 @@
             surname: 'Kuzmich',
             position: 'Web Developer',
             bio: 'Pigeon stealer',
-            image: '/skuzmich.jpg' // Replace with the path to the image
+            image: '/skuzmich.jpg'
         },
 
         {
@@ -22,7 +21,7 @@
             surname: 'Soldatov',
             position: 'Big boss',
             bio: 'Papochka',
-            image: '/anatolii.jpg' // Replace with the path to the image
+            image: '/anatolii.jpg'
         },
 
         {
@@ -37,10 +36,9 @@
             name: 'Ivan',
             surname: 'Golov',
             position: 'Figma master',
-            bio: 'I am a figma master',
+            bio: 'I am a daisyUI master and Taiwind CSS lover',
             image: '/igolov.jpg'
         }
-        // Add more team members here...
     ];
 </script>
 
@@ -68,7 +66,9 @@
 </div>
 
 <style>
-    .custom-font {
-        font-family: Helvetica, Arial, sans-serif; /* Replace with your desired font stack */
+    .text-4xl {
+        font-size: 40px;
+        text-align: center;
+        color: #007349;
     }
 </style>

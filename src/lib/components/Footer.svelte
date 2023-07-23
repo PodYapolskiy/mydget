@@ -1,35 +1,40 @@
-<footer class="bg-gray-800 text-white p-6">
-    <div class="container mx-auto">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-            <div class="mb-4 md:mb-0">
-                <span class="font-bold"
-                    >Mydget — keep an eye on your budget</span
-                >
-                <p class="text-gray-400">
-                    Universitetskaya St., 1, Innopolis, Tatarstan Republic,
-                    Russia, 420500
-                </p>
-                <p class="text-gray-400">Telegram: @podyapolskiyaa</p>
-                <p class="text-gray-400">Email: podyapolskiyaa@gmail.com</p>
-            </div>
-            <div>
-                <ul class="flex space-x-4">
-                    <li><a href=" " class="hover:text-gray-300">Home</a></li>
-                    <li><a href=" " class="hover:text-gray-300">About</a></li>
-                    <li>
-                        <a href=" " class="hover:text-gray-300">Services</a>
-                    </li>
-                    <li>
-                        <a href=" " class="hover:text-gray-300">Contact</a>
-                    </li>
-                </ul>
-            </div>
+<script>
+    import icon1 from '$lib/images/footer_img/email.png';
+    import icon2 from '$lib/images/footer_img/github.svg';
+    import icon3 from '$lib/images/footer_img/telegram.svg';
+</script>
+
+<footer class="footer footer-center p-10 bg-gray-800 text-base-content rounded">
+    <div class="grid grid-flow-col gap-4">
+        <a class="link link-hover text-white" href="./">Home</a>
+        <a class="link link-hover text-white" href="./about">About</a>
+        <a class="link link-hover text-white" href="./transactions"
+            >Transactions</a
+        >
+    </div>
+    <div>
+        <div class="grid grid-flow-col gap-3">
+            <a href="https://github.com/PodYapolskiy/mydget.git"
+                ><img src={icon2} alt="github" /></a
+            >
+            <a href="https://t.me/podyapolskiyaa"
+                ><img src={icon3} alt="telegram" /></a
+            >
+            <a href="https://mail.google.com/mail/u/1/#inbox"
+                ><img src={icon1} alt="email" /></a
+            >
         </div>
+    </div>
+    <div>
+        <p class="text-white">Mydget — keep an eye on your budget!</p>
     </div>
 </footer>
 
 <style>
     .bg-gray-800 {
         background-color: #005c3b;
+    }
+    .text-white {
+        font-size: 17px;
     }
 </style>
