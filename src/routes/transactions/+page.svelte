@@ -4,6 +4,7 @@
     import { onMount } from 'svelte';
     import TransactionsStatistics from '$lib/components/TransactionsStatistics.svelte';
     import AddTransaction from '$lib/components/AddTransaction.svelte';
+    import FilterTransaction from '$lib/components/FilterTransaction.svelte';
 
     // onMount(async () => {
     //     try {
@@ -19,3 +20,4 @@
 
 <TransactionsStatistics />
 <AddTransaction />
+<FilterTransaction />
