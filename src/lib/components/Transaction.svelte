@@ -33,6 +33,8 @@
     </td>
     <td>{stringDate}</td>
     <th>
-        <button class="btn btn-ghost btn-xs">details</button>
+        <a href={transactionPath}>
+            <button class="btn btn-ghost btn-xs">edit</button>
+        </a>
     </th>
 </tr>
