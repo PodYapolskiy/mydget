@@ -1,23 +1,19 @@
-<div class="flex max-w-5xl flex-col mx-auto px-6 py-8 custom-font">
-    <div class="flex flex-row font-bold text-xl mb-3">
+<script>
+    import techLogos from '../../lib/images/home_img/tech_logos.png';
+</script>
+
+<section class="bg-slate-50 tech_stack">
+    <div class="flex flex-row font-bold text-xl mb-3 progress-block">
         <div class="font-bold text-xl mb-3">
             <p>Technological Stack</p>
             <div class="flex flex-col items-center">
-                <style>
-                    progress::-webkit-progress-value {
-                        background-color: #3366cc;
-                    }
-                    progress::-moz-progress-bar {
-                        background-color: #3366cc;
-                    }
-                </style>
                 <div class="mb-2">
                     <p>Svelte</p>
                     <progress class="progress w-96 h-5" value="0" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>TypeScript</p>
-                    <progress class="progress w-96 h-5" value="10" max="100" />
+                    <progress class="progress w-96 h-5" value="100" max="100" />
                 </div>
                 <div class="mb-2">
                     <p>JavaScript</p>
@@ -34,15 +30,29 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center mt-4">
-        <p style="color: #af3a1b; font-weight: bold">
-            Additionally: GitHub, ESLint, Prettier, VSCode
-        </p>
-    </div>
-</div>
+    <img src={techLogos} class="techLogos_img" alt="" />
+</section>
 
 <style>
-    .custom-font {
-        font-family: Helvetica, Arial, sans-serif; /* Replace with your desired font stack */
+    .progress-block {
+        background-color: white;
+        border-radius: 27px;
+        padding: 20px 20px;
+        margin-top: 20px;
+    }
+
+    .tech_stack {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 100px;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    .techLogos_img {
+        width: 450px;
+    }
+    progress::-webkit-progress-value {
+        background-color: #007349;
     }
 </style>
