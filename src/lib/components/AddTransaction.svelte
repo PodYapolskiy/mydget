@@ -49,46 +49,48 @@
     // });
 </script>
 
-<div class="flex max-w-4xl flex-col mx-auto px-6 py-8 custom-font">
+<div class="flex max-w-5xl flex-col mx-auto px-12 py-8 custom-font">
     <h1 class="font-bold text-2xl text-left text-gray-800 mb-8">
         Add Transaction
     </h1>
-    <div class="flex flex-line">
+
+    <div class="flex flex-line justify-center">
+        <input
+            type="date"
+            placeholder="Date"
+            class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
+        />
         <input
             type="number"
             placeholder="Amount"
-            class="input input-bordered text-gray-800 w-1/4 max-w-xs mr-4"
+            class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
             step="100"
             id="amountInput"
             value="0"
         />
 
         <div class="join">
-            <select class="select select-bordered join-item mr-4">
+            <select class="select input-bordered join-item mr-4">
                 <option disabled selected>Category</option>
                 <option>Food</option>
                 <option>Daily</option>
                 <option>Entertainment</option>
             </select>
         </div>
-        <!-- <select
-            class="custom-select input-bordered text-gray-800 w-1/4 h-8 max-w-xs mr-4"
-        >
-            <option disabled selected>Category</option>
-            <option>Food</option>
-            <option>Entertainment</option>
-            <option>Medicine</option>
-            <option>Pets</option>
-        </select> -->
-
-        <input
-            type="date"
-            placeholder="Date"
-            class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
-        />
-        <div class="join">
-            <button class="btn join-item">Income</button>
-            <button class="btn join-item">Expense</button>
+        <div class="btn-group">
+            <input
+                type="radio"
+                name="options"
+                data-title="Income"
+                class="btn"
+            />
+            <input
+                type="radio"
+                name="options"
+                data-title="Expense"
+                class="btn"
+                checked
+            />
         </div>
     </div>
 </div>
@@ -97,8 +99,16 @@
     ::placeholder {
         color: black;
     }
-    /* .input-bordered {
+    .input-bordered {
         border-color: #007349;
         border-width: 1.5px;
-    } */
+    }
+
+    .select {
+        width: 200px;
+    }
+    .btn:checked {
+        background-color: #af3a1b !important;
+        border-color: #af3a1b !important;
+    }
 </style>
