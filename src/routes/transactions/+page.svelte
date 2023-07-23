@@ -2,6 +2,11 @@
     import { db } from '$lib/fb';
     import { doc, collection, getDoc, getDocs } from 'firebase/firestore';
     import { onMount } from 'svelte';
+
+    import TransactionsStatistics from '$lib/components/TransactionsStatistics.svelte';
+    import AddTransaction from '$lib/components/AddTransaction.svelte';
+    import FilterTransaction from '$lib/components/FilterTransaction.svelte';
+
     import Transaction from '$lib/components/Transaction.svelte';
     import type { TransactionType } from '$lib/types';
 
@@ -36,6 +41,10 @@
         }
     });
 </script>
+
+<TransactionsStatistics />
+<AddTransaction />
+<FilterTransaction />
 
 <!--<div class="stats shadow center-top">-->
 <!--    <div class="stat">-->
