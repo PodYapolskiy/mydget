@@ -61,7 +61,7 @@
             .then((result) => {
                 const credential =
                     GoogleAuthProvider.credentialFromResult(result);
-                const token = credential?.accessToken; // check for error when token is used
+                const token = credential?.accessToken;
                 const user = result.user;
                 console.log(user);
                 const docRef = addDoc(collection(db, 'users'), {
