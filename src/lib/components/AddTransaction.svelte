@@ -49,7 +49,9 @@
     // });
 </script>
 
-<div class="flex max-w-5xl flex-col mx-auto px-12 py-8 custom-font">
+<div
+    class="flex max-w-5xl flex-col mx-auto px-12 pt-6 pb-6 bg-gray-100 custom-font"
+>
     <h1 class="font-bold text-2xl text-left text-gray-800 mb-8">
         Add Transaction
     </h1>
@@ -77,25 +79,34 @@
                 <option>Entertainment</option>
             </select>
         </div>
-        <div class="btn-group">
+        <div class="btn-group mr-4">
             <input
                 type="radio"
                 name="options"
                 data-title="Income"
-                class="btn"
+                class="btn btn-income"
             />
             <input
                 type="radio"
                 name="options"
                 data-title="Expense"
-                class="btn"
+                class="btn btn-expense"
                 checked
             />
         </div>
+        <button class="btn font-bold custom-color uppercase"> +Add </button>
     </div>
 </div>
 
 <style>
+    .custom-color {
+        background-color: #fefffe !important;
+        border-color: rgb(80, 80, 80) !important;
+        border-width: 1.5px !important;
+    }
+    .uppercase {
+        text-transform: none;
+    }
     ::placeholder {
         color: black;
     }
@@ -107,8 +118,18 @@
     .select {
         width: 200px;
     }
-    .btn:checked {
+    .btn-income:checked {
+        background-color: #007349 !important;
+        color: #fefffe !important;
+        border: #007349 !important;
+    }
+
+    .btn-expense:checked {
         background-color: #af3a1b !important;
-        border-color: #af3a1b !important;
+        color: #fefffe !important;
+        border: #af3a1b !important;
+    }
+    .btn {
+        background-color: #ced0ce;
     }
 </style>

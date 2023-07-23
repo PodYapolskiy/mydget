@@ -1,7 +1,7 @@
-<div class="flex max-w-4xl flex-col mx-auto px-6 py-8 custom-font">
-    <div class="flex flex-line mt-4">
+<div class="flex max-w-5xl flex-col mx-auto py-8 custom-font">
+    <div class="flex flex-line">
         <div class="join mr-4">
-            <select class="select select-bordered join-item">
+            <select class="select select-bordered border-2 join-item">
                 <option disabled selected>Filter by Category</option>
                 <option>All</option>
                 <option>Food</option>
@@ -10,7 +10,7 @@
             </select>
         </div>
         <div class="join mr-4">
-            <select class="select select-bordered join-item">
+            <select class="select select-bordered border-2 join-item">
                 <option disabled selected>Filter by Type</option>
                 <option>All</option>
                 <option>Income</option>
@@ -19,7 +19,7 @@
         </div>
         <!-- You can add more filter options as needed, like date range, etc. -->
         <div class="join">
-            <select class="select select-bordered join-item">
+            <select class="select select-bordered border-2 join-item">
                 <option disabled selected>Filter by Date</option>
                 <option>All</option>
                 <option>Today</option>
