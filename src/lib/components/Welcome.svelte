@@ -12,19 +12,19 @@
 <style>
     .welcome_img {
         position: relative;
-        left: 980px;
+        left: 900px;
         width: 450px;
     }
 
     .wrapper {
         display: flex;
         position: absolute;
-        margin: 200px 150px;
+        margin: 200px 100px;
     }
 
     .text {
         width: 18ch;
-        color: black;
+        color: #007349;
         font-size: 70px;
         font-weight: 600;
         white-space: nowrap;

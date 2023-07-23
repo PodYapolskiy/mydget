@@ -6,8 +6,8 @@
 </script>
 
 <div>
-    <p>{id}</p>
-    <p>{amount}</p>
-    <p>{category}</p>
-    <p>{date}</p>
+    <p>ID number: {id}</p>
+    <p>Amount number: {amount}</p>
+    <p>Category: {category}</p>
+    <p>Date: {date}</p>
 </div>
