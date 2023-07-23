@@ -13,6 +13,8 @@
         date = new Date(timestamp.seconds * 1000 + timestamp.nanoseconds / 1e6);
         return date.toLocaleString();
     }
+
+    const transactionPath = `/transactions/${id}`;
 </script>
 
 <tr class="hover">
@@ -40,6 +42,8 @@
     </td>
     <td>{formatTimestamp()}</td>
     <th>
-        <button class="btn btn-ghost btn-xs">details</button>
+        <a href={transactionPath}>
+            <button class="btn btn-ghost btn-xs">edit</button>
+        </a>
     </th>
 </tr>
