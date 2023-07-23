@@ -1,4 +1,4 @@
-<div class="flex max-w-5xl mx-auto px-6 py-8 custom-font">
+<div class="flex max-w-5xl mx-auto px-6 pb-10 pt-10 custom-font">
     <div class="stat">
         <div class="stat-figure text-accent3">
             <svg
