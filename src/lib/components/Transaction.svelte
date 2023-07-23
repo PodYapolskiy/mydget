@@ -6,6 +6,8 @@
     export let date: Date;
 
     const stringDate = format(date, 'dd.MM.yyyy');
+
+    const transactionPath = `/transactions/${id}`;
 </script>
 
 <tr class="hover">
