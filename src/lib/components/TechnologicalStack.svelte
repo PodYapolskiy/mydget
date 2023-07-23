@@ -41,15 +41,13 @@
         margin-top: 20px;
     }
 
-    .progress-block h1{
+    .progress-block h1 {
         font-size: 40px;
         text-align: center;
         padding-bottom: 15px;
         color: #007349;
-
     }
     .tech_stack {
-    
         display: flex;
         justify-content: space-between;
         column-gap: 100px;

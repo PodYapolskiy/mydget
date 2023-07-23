@@ -13,7 +13,7 @@
             surname: 'Kuzmich',
             position: 'Web Developer',
             bio: 'Pigeon stealer',
-            image: '/skuzmich.jpg' 
+            image: '/skuzmich.jpg'
         },
 
         {
@@ -21,7 +21,7 @@
             surname: 'Soldatov',
             position: 'Big boss',
             bio: 'Papochka',
-            image: '/anatolii.jpg' 
+            image: '/anatolii.jpg'
         },
 
         {

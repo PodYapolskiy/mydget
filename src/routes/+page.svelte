@@ -30,9 +30,11 @@
                     your finances and achieve your goals and dreams.
                 </p>
             </div>
-           <a href="./signup"><button class="btn btn-wide bg-slate-300 header-btn">
-            Let's start
-        </button></a> 
+            <a href="./signup"
+                ><button class="btn btn-wide bg-slate-300 header-btn">
+                    Let's start
+                </button></a
+            >
         </div>
         <div class="header_hero">
             <img
@@ -316,7 +318,9 @@
                 >
                     Subscribe to our newsletter
                 </h2>
-                <p class="mt-4 text-lg leading-8 text-black-300 subscribe_content">
+                <p
+                    class="mt-4 text-lg leading-8 text-black-300 subscribe_content"
+                >
                     We welcome new subscribers and try to create useful and
                     relevant content.
                 </p>
@@ -360,7 +364,9 @@
                             />
                         </svg>
                     </div>
-                    <dt class="mt-4 font-semibold text-black subscribe_subtitle">
+                    <dt
+                        class="mt-4 font-semibold text-black subscribe_subtitle"
+                    >
                         Weekly articles
                     </dt>
                     <dd class="mt-2 leading-7 text-black-400 subscribe_content">
@@ -384,7 +390,11 @@
                             />
                         </svg>
                     </div>
-                    <dt class="mt-4 font-semibold text-black subscribe_subtitle">No spam</dt>
+                    <dt
+                        class="mt-4 font-semibold text-black subscribe_subtitle"
+                    >
+                        No spam
+                    </dt>
                     <dd class="mt-2 leading-7 text-black-400 subscribe_content">
                         We are responsible for the quality of our information
                         product.
