@@ -1,5 +1,5 @@
 <script>
-    import techLogos from '../../lib/images/home_img/tech_logos.png';
+    import techLogos from '../../lib/images/home_img/tech_logos.svg';
 </script>
 
 <section class="bg-slate-50 tech_stack">

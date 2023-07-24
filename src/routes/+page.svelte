@@ -1,9 +1,9 @@
 <script>
     import header from '$lib/images/about_img/hero.jpg';
-    import feature1 from '$lib/images/about_img/feat_1.png';
-    import feature2 from '$lib/images/about_img/feat_2.png';
-    import feature3 from '$lib/images/about_img/feat_3.png';
-    import feature4 from '$lib/images/about_img/feat_4.png';
+    import feature1 from '$lib/images/about_img/feat_1.svg';
+    import feature2 from '$lib/images/about_img/feat_2.svg';
+    import feature3 from '$lib/images/about_img/feat_3.svg';
+    import feature4 from '$lib/images/about_img/feat_4.svg';
     import sourse1 from '$lib/images/about_img/sourse_1.png';
     import sourse2 from '$lib/images/about_img/sourse_2.png';
     import sourse3 from '$lib/images/about_img/sourse_3.png';
