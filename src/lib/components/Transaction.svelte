@@ -11,16 +11,16 @@
     const transactionPath = `/transactions/${id}`;
 </script>
 
-<tr class="hover">
-    <th>
-        <label>
-            <input type="checkbox" class="checkbox" />
-        </label>
-    </th>
+<tr class="hover transaction-row">
+    <!-- Added 'transaction-row' class to the row -->
+    <td>{stringDate}</td>
+    <td class="">
+        {amount}
+    </td>
     <td>
         <div class="flex items-center space-x-3">
             <div class="avatar">
-                <div class="mask mask-squircle w-12 h-12">
+                <div class="mask mask-squircle w-11 h-11">
                     <img src="/food.png" alt="food" />
                 </div>
             </div>
@@ -30,14 +30,15 @@
         </div>
     </td>
     <td>
-        {amount}
-        <br />
-        <span class="badge badge-ghost badge-sm">{id}</span>
-    </td>
-    <td>{stringDate}</td>
-    <th>
         <a href={transactionPath}>
-            <button class="btn btn-ghost btn-s">edit</button>
+            <button class="btn btn-ghost btn-md ml-24 w-32">edit</button>
         </a>
-    </th>
+    </td>
 </tr>
+
+<style>
+    .transaction-row td {
+        width: 25%;
+        border-bottom: 1px solid #007349;
+    }
+</style>
