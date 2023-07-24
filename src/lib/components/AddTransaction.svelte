@@ -80,7 +80,7 @@
         amount: number,
         category: string
     ) => {
-        // save negative amouiunt for expenses
+        // save negative amount for expenses
         amount = transactionType === 'Income' ? amount : -amount;
 
         const id = uuidv4();
@@ -96,7 +96,7 @@
             transactions = transactions; // reactivity
             console.log(transactions);
 
-            // clean up input fiels if success
+            // clean up input fields if success
             dateInputValue = new Date();
             amountInputValue = 0;
             categoryInputValue = 'Category';
@@ -127,25 +127,28 @@
         </h1>
 
         <form on:submit|preventDefault={handleSubmit}>
-            <div class="flex flex-line justify-center">
-                <input
-                    type="date"
-                    placeholder="Date"
-                    bind:value={dateInputValue}
-                    class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
-                />
-                <input
-                    type="number"
-                    placeholder="Amount"
-                    bind:value={amountInputValue}
-                    class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
-                    step="100"
-                    id="amountInput"
-                />
-
-                <div class="join">
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/5 p-2">
+                    <input
+                        type="date"
+                        placeholder="Date"
+                        bind:value={dateInputValue}
+                        class="input input-bordered w-full"
+                    />
+                </div>
+                <div class="w-full md:w-1/5 p-2">
+                    <input
+                        type="number"
+                        placeholder="Amount"
+                        bind:value={amountInputValue}
+                        class="input input-bordered text-gray-800 w-full"
+                        step="100"
+                        id="amountInput"
+                    />
+                </div>
+                <div class="w-full md:w-1/5 p-2">
                     <select
-                        class="select input-bordered join-item mr-4"
+                        class="select input-bordered join-item w-full"
                         bind:value={categoryInputValue}
                     >
                         <option disabled selected>Category</option>
@@ -154,62 +157,38 @@
                         <option>Entertainment</option>
                     </select>
                 </div>
-                <div class="btn-group mr-4">
-                    <input
-                        type="radio"
-                        name="options"
-                        data-title="Income"
-                        class="btn btn-income"
-                        bind:group={transactionType}
-                        value="Income"
-                    />
-                    <input
-                        type="radio"
-                        name="options"
-                        data-title="Expense"
-                        class="btn btn-expense"
-                        bind:group={transactionType}
-                        value="Expense"
-                    />
-
-                    <div class="join">
-                        <select
-                            class="select input-bordered join-item mr-4"
-                            bind:value={category}
+                <div class="w-full md:w-1/5 py-2">
+                    <div class="flex items-center px-8">
+                        <div class="btn-group mr-4 px-8 justify-center">
+                            <input
+                                type="radio"
+                                name="options"
+                                data-title="Income"
+                                class="btn btn-income text-center"
+                            />
+                            <input
+                                type="radio"
+                                name="options"
+                                data-title="Expense"
+                                class="btn btn-expense text-center"
+                                checked
+                            />
+                        </div>
+                        <button
+                            class="btn font-bold custom-color uppercase"
+                            on:click|preventDefault={() => {
+                                addTransaction(
+                                    Timestamp.fromDate(
+                                        new Date(dateInputValue)
+                                    ),
+                                    amountInputValue,
+                                    categoryInputValue
+                                );
+                            }}
                         >
-                            <option disabled selected>Category</option>
-                            <option>Food</option>
-                            <option>Daily</option>
-                            <option>Entertainment</option>
-                        </select>
+                            +Add
+                        </button>
                     </div>
-                    <div class="btn-group mr-4">
-                        <input
-                            type="radio"
-                            name="options"
-                            data-title="Income"
-                            class="btn btn-income"
-                        />
-                        <input
-                            type="radio"
-                            name="options"
-                            data-title="Expense"
-                            class="btn btn-expense"
-                            checked
-                        />
-                    </div>
-                    <button
-                        class="btn font-bold custom-color uppercase"
-                        on:click|preventDefault={() => {
-                            addTransaction(
-                                Timestamp.fromDate(new Date(dateInputValue)),
-                                amountInputValue,
-                                categoryInputValue
-                            );
-                        }}
-                    >
-                        +Add
-                    </button>
                 </div>
             </div>
         </form>
