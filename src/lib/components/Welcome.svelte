@@ -12,7 +12,6 @@
 <style>
     .welcome {
         display: flex;
-        align-items: end;
     }
     .welcome_img {
         width: 500px;
