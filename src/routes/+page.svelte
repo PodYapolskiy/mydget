@@ -10,8 +10,8 @@
 </script>
 
 <svelte:head>
-    <title>Home</title>
-    <meta name="author" content="Mydget team" />
+    <title>About</title>
+    <meta name="author" content="Ivan Golov" />
     <meta name="description" content="Project description page " />
     <meta name="keywords" content="features finances feedback guideline" />
 </svelte:head>
