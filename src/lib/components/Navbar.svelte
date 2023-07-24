@@ -20,13 +20,17 @@
     <div class="navbar_custom bg-base-100">
         <div class="">
             <div class="flex-1">
-                <img src="/logo_small.svg" class="w-10 h-10 element_nav" alt="logo" />
+                <img
+                    src="/logo_small.svg"
+                    class="w-10 h-10 element_nav"
+                    alt="logo"
+                />
             </div>
         </div>
         <div class="navbar-center">
             <ul
-                class="menu menu-horizontal  dropdown-content
-            z-[1]  shadow bg-base-100 rounded-box"
+                class="menu menu-horizontal dropdown-content
+            z-[1] shadow bg-base-100 rounded-box"
             >
                 <li><a href="/">Home</a></li>
                 <li><a href="./about">About</a></li>
@@ -68,9 +72,6 @@
     </div>
 </nav>
 
-
-
-
 <style>
     .menu {
         margin-left: 10px;
@@ -87,5 +88,13 @@
 
     .element_nav {
         max-width: 100%;
+    }
+    @media (min-width: 1000px) {
+        .navbar_custom {
+            justify-content: space-between;
+        }
+        .navigation_bar {
+            margin: 10px 60px;
+        }
     }
 </style>

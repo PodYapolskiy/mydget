@@ -645,21 +645,32 @@
             column-gap: 0px;
         }
         .card-body a {
-            display: none;
+            font-size: 15px;
         }
         .card-title {
-            display: none;
+            font-size: 18px;
+            line-height: 1;
         }
         .card {
-            padding: 0 0;
+            padding: 10px 10px;
         }
-
-        .w-96 {
-            width: 400px;
+        .card img {
+            display: none;
         }
 
         .card-body {
             padding: 0 0;
+        }
+        /* Subscribe*/
+        .subscribe_title {
+            font-size: 30px;
+        }
+        .subscribe_subtitle {
+            font-size: 20px;
+        }
+
+        .subscribe_content {
+            font-size: 15px;
         }
     }
 </style>

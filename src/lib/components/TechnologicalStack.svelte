@@ -49,7 +49,6 @@
     }
     .tech_stack {
         display: flex;
-        justify-content: space-between;
         column-gap: 100px;
         justify-content: center;
         padding: 20px 0;
@@ -59,5 +58,29 @@
     }
     progress::-webkit-progress-value {
         background-color: #007349;
+    }
+    @media (max-width: 900px) {
+        .tech_stack {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .techLogos_img {
+            width: 300px;
+        }
+
+        .progress-block {
+            padding: 10px 5px;
+            margin-top: 10px;
+        }
+        .progress-block h1 {
+            font-size: 30px;
+        }
+        .mb-2 p {
+            font-size: 18px;
+        }
+        .progress {
+            width: 330px;
+        }
     }
 </style>
