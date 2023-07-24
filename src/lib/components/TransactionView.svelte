@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { Timestamp } from "firebase/firestore";
+    import type { Timestamp } from 'firebase/firestore';
 
     export let id: string;
     export let date: Timestamp;

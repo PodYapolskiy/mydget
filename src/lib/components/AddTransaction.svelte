@@ -36,7 +36,7 @@
         category: string
     ) => {
         // save negative amouiunt for expenses
-        amount = transactionType == 'Income' ? amount : -amount;
+        amount = transactionType === 'Income' ? amount : -amount;
 
         const id = uuidv4();
         const data = { date, amount, category } as TransactionType;
