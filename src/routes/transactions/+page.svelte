@@ -51,9 +51,9 @@
         <!-- head -->
         <thead>
             <tr>
+                <th>Name</th>
                 <th>Date</th>
                 <th>Amount</th>
-                <th> Category</th>
                 <th />
             </tr>
         </thead>

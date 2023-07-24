@@ -19,7 +19,7 @@
     <td>
         <div class="flex items-center space-x-3">
             <div class="avatar">
-                <div class="mask mask-squircle w-11 h-11">
+                <div class="mask mask-squircle w-12 h-12">
                     <img src="/food.png" alt="food" />
                 </div>
             </div>
