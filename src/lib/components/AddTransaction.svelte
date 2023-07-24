@@ -60,6 +60,8 @@
         <input
             type="date"
             placeholder="Date"
+            min="2014-01-01"
+            max="2024-01-01"
             class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
         />
         <input
@@ -68,7 +70,8 @@
             class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
             step="100"
             id="amountInput"
-            value="0"
+            min="0"
+            max="1000000"
         />
 
         <div class="join">
