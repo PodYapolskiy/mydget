@@ -1,4 +1,4 @@
-<div class="flex max-w-5xl flex-col mx-auto py-8 custom-font">
+<div class="flex max-w-5xl flex-col mx-auto pb-4 pt-12 custom-font">
     <div class="flex flex-line">
         <div class="join mr-4">
             <select class="select select-bordered border-2 join-item">
