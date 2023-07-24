@@ -12,8 +12,14 @@
 <svelte:head>
     <title>Home</title>
     <meta name="author" content="Mydget team" />
-    <meta name="description" content="Project description page " />
-    <meta name="keywords" content="features finances feedback guideline" />
+    <meta
+        name="description"
+        content="Let's get acquainted with Mydget application"
+    />
+    <meta
+        name="keywords"
+        content="features financial_sourses guideline greeting"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
