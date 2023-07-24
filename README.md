@@ -2,6 +2,8 @@
 
 Web application to track transactions and maintain budget
 
+[![workflow](https://github.com/PodYapolskiy/mydget/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/PodYapolskiy/mydget/actions/workflows/build.yml) [![issuesopen](https://img.shields.io/github/issues/PodYapolskiy/mydget.svg)](https://github.com/PodYapolskiy/mydget/issues) [![issuesclosed](https://img.shields.io/github/issues-closed/PodYapolskiy/mydget.svg)](https://github.com/PodYapolskiy/mydget/issues?q=is%3Aissue+is%3Aclosed) [![pull](https://img.shields.io/github/issues-pr/PodYapolskiy/mydget.svg)](https://github.com/PodYapolskiy/mydget/pulls) [![pull-closed](https://img.shields.io/github/issues-pr-closed/PodYapolskiy/mydget.svg)](https://github.com/PodYapolskiy/mydget/pulls)
+
 ## Developing
 
 1. Clone repository
