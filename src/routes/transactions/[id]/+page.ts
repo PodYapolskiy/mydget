@@ -17,5 +17,5 @@ export const load = (({ params }) => {
         date: new Date(),
         amount: 50,
         category: 'Food'
-    } satisfies TransactionType;
+    }; // satisfies TransactionType;
 }) satisfies PageLoad;

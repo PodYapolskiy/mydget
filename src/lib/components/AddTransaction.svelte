@@ -1,52 +1,54 @@
 <script lang="ts">
-    // import { writable } from 'svelte/store';
-    // import type { Transaction } from '../../lib/types';
+    import {
+        addDoc,
+        collection,
+        doc,
+        getDoc,
+        Timestamp
+    } from 'firebase/firestore';
+    import { db } from '$lib/fb';
+    import type { TransactionType } from '$lib/types';
+    import { onMount } from 'svelte';
 
-    // // Declare and initialize the variables
-    // let amount = 0;
-    // let category = '';
-    // let time = '';
+    const userID = 'rt3bWUYTLYA08n8pL7xq';
 
-    // // Create a writable store for transactions
-    // const transactions = writable<Transaction[]>([]);
+    // Array of transactions
+    export let transactions: TransactionType[] = [];
 
-    // // Define the handleSubmit function
-    // function handleSubmit() {
-    //     if (amount <= 0 || !category || !time) {
-    //         alert('Please fill in all fields with valid data.');
-    //         return;
-    //     }
+    let date = new Date();
+    let amount = 0;
+    let category: string;
+    let transactionType: string;
 
-    //     // Create a new transaction object
-    //     const newTransaction: Transaction = {
-    //         amount,
-    //         category,
-    //         time
-    //     };
+    const userRef = doc(db, `users/${userID}`);
+    onMount(async () => {
+        const user = await getDoc(userRef);
+        console.log(user.get('email'));
+    });
 
-    //     // Update the transactions store
-    //     transactions.update((prevTransactions) => [
-    //         ...prevTransactions,
-    //         newTransaction
-    //     ]);
+    const transactionsRef = collection(db, `users/${userID}/transactions`);
 
-    //     // Clear form inputs
-    //     amount = 0;
-    //     category = '';
-    //     time = '';
-    // }
+    // Time conversion from string to firebase timestamp
+    const FirebaseTimestamp = Timestamp.fromDate(date);
+    function addTransaction() {
+        // Add transaction to the database
+        addDoc(transactionsRef, {
+            date: FirebaseTimestamp,
+            amount: amount,
+            category: category,
+            type: transactionType
+        });
 
-    // const amountInput = document.getElementById('amountInput');
-
-    // amountInput.addEventListener('input', function () {
-    //     const stepValue = parseInt(amountInput.getAttribute('step'));
-    //     const currentValue = parseInt(amountInput.value);
-
-    //     // Check if the input value is a multiple of the step value
-    //     // If not, round it to the nearest multiple of the step value
-    //     const newValue = Math.round(currentValue / stepValue) * stepValue;
-    //     amountInput.value = newValue;
-    // });
+        // Add transaction to the array locally
+        // transactions.push({
+        //     amount,
+        //     category,
+        //     type: transactionType,
+        //     date: FirebaseTimestamp,
+        //     id: 'ielufbIYGFQUYE4212'
+        // });
+        console.log(transactions);
+    }
 </script>
 
 <div
@@ -60,19 +62,23 @@
         <input
             type="date"
             placeholder="Date"
+            bind:value={date}
             class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
         />
         <input
             type="number"
             placeholder="Amount"
+            bind:value={amount}
             class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
             step="100"
             id="amountInput"
-            value="0"
         />
 
         <div class="join">
-            <select class="select input-bordered join-item mr-4">
+            <select
+                class="select input-bordered join-item mr-4"
+                bind:value={category}
+            >
                 <option disabled selected>Category</option>
                 <option>Food</option>
                 <option>Daily</option>
@@ -85,16 +91,24 @@
                 name="options"
                 data-title="Income"
                 class="btn btn-income"
+                bind:group={transactionType}
+                value="Income"
             />
             <input
                 type="radio"
                 name="options"
                 data-title="Expense"
                 class="btn btn-expense"
-                checked
+                bind:group={transactionType}
+                value="Expense"
             />
         </div>
-        <button class="btn font-bold custom-color uppercase"> +Add </button>
+        <button
+            class="btn font-bold custom-color uppercase"
+            on:click|preventDefault={addTransaction}
+        >
+            +Add
+        </button>
     </div>
 </div>
 
