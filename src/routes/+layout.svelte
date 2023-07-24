@@ -22,11 +22,14 @@
 </script>
 
 <svelte:head>
-    <title />
-    <meta name="author" content=" " />
-    <meta name="description" content=" " />
-    <meta name="keywords" content=" " />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://mydget.pages.dev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mydget — keep an eye on your budget!" />
+    <meta
+        property="og:description"
+        content="Mydget will allow you to quickly and effectively manage your finances and achieve your goals and dreams."
+    />
+    <meta property="og:image" content="https://i.imgur.com/T8jvO4v.png" />
 </svelte:head>
 
 <Navbar />

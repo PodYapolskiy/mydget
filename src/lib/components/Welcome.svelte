@@ -10,16 +10,16 @@
 </section>
 
 <style>
+    .welcome {
+        display: flex;
+    }
     .welcome_img {
-        position: relative;
-        left: 900px;
-        width: 450px;
+        width: 500px;
     }
 
     .wrapper {
         display: flex;
-        position: absolute;
-        margin: 200px 100px;
+        margin: 200px 60px;
     }
 
     .text {
@@ -54,6 +54,16 @@
     }
 
     /* Media */
+    @media (min-width: 1000px) {
+        .welcome_img {
+            position: absolute;
+            left: 60%;
+        }
+
+        .text {
+            position: relative;
+        }
+    }
     @media (max-width: 900px) {
         /* Welcome */
         .welcome {
