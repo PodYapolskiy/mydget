@@ -1,5 +1,5 @@
 <script>
-    import icon1 from '$lib/images/footer_img/email.png';
+    import icon1 from '$lib/images/footer_img/email.svg';
     import icon2 from '$lib/images/footer_img/github.svg';
     import icon3 from '$lib/images/footer_img/telegram.svg';
 </script>
