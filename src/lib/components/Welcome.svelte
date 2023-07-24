@@ -52,4 +52,37 @@
             width: 0;
         }
     }
+
+    /* Media */
+    @media (max-width: 900px) {
+        /* Welcome */
+        .welcome {
+            display: flex;
+            flex-direction: column;
+        }
+        .welcome_img {
+            width: 400px;
+            left: 1px;
+        }
+
+        .wrapper {
+            margin: 20px 20px;
+            position: relative;
+        }
+
+        .text {
+            width: 18ch;
+            font-size: 33px;
+        }
+        @media (min-width: 390px) {
+            .wrapper {
+                margin: 20px 30px;
+            }
+        }
+        @media (min-width: 400px) {
+            .wrapper {
+                margin: 20px 40px;
+            }
+        }
+    }
 </style>
