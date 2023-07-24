@@ -60,8 +60,8 @@
         <input
             type="date"
             placeholder="Date"
-            min="2014-01-01"
-            max="2024-01-01"
+            min="1999-01-01"
+            max="2099-01-01"
             class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
         />
         <input
