@@ -11,7 +11,7 @@
 
     import { db } from '$lib/fb';
     import type { TransactionType } from '$lib/types';
-  
+
     // Declare and initialize the variables
     let amount = 0;
     let category = 'Category';
@@ -25,7 +25,7 @@
     let amountInputValue: number;
     let categoryInputValue: string;
     let transactionType: string;
-    
+
     // Define the handleSubmit function
     function handleSubmit() {
         if (
@@ -107,110 +107,113 @@
     };
 </script>
 
-<dialog id="my_modal_1" class="modal">
-    <form method="dialog" class="modal-box">
-        <h3 class="font-bold text-lg">Invalid input!</h3>
-        <p id="error_message" class="py-4" />
-        <div class="modal-action">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
-        </div>
-    </form>
-</dialog>
-
-<div
-    class="flex max-w-5xl flex-col mx-auto px-12 pt-6 pb-6 bg-gray-100 custom-font"
->
-    <h1 class="font-bold text-2xl text-left text-gray-800 mb-8">
-        Add Transaction
-    </h1>
-
-    <form on:submit|preventDefault={handleSubmit}>
-    <div class="flex flex-line justify-center">
-        <input
-            type="date"
-            placeholder="Date"
-            bind:value={dateInputValue}
-            class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
-        />
-        <input
-            type="number"
-            placeholder="Amount"
-            bind:value={amountInputValue}
-            class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
-            step="100"
-            id="amountInput"
-        />
-
-        <div class="join">
-            <select
-                class="select input-bordered join-item mr-4"
-                bind:value={categoryInputValue}
-            >
-                <option disabled selected>Category</option>
-                <option>Food</option>
-                <option>Daily</option>
-                <option>Entertainment</option>
-            </select>
-        </div>
-        <div class="btn-group mr-4">
-            <input
-                type="radio"
-                name="options"
-                data-title="Income"
-                class="btn btn-income"
-                bind:group={transactionType}
-                value="Income"
-            />
-            <input
-                type="radio"
-                name="options"
-                data-title="Expense"
-                class="btn btn-expense"
-                bind:group={transactionType}
-                value="Expense"
-            />
-
-            <div class="join">
-                <select
-                    class="select input-bordered join-item mr-4"
-                    bind:value={category}
-                >
-                    <option disabled selected>Category</option>
-                    <option>Food</option>
-                    <option>Daily</option>
-                    <option>Entertainment</option>
-                </select>
+<div>
+    <dialog id="my_modal_1" class="modal">
+        <form method="dialog" class="modal-box">
+            <h3 class="font-bold text-lg">Invalid input!</h3>
+            <p id="error_message" class="py-4" />
+            <div class="modal-action">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
             </div>
-            <div class="btn-group mr-4">
+        </form>
+    </dialog>
+
+    <div
+        class="flex max-w-5xl flex-col mx-auto px-12 pt-6 pb-6 bg-gray-100 custom-font"
+    >
+        <h1 class="font-bold text-2xl text-left text-gray-800 mb-8">
+            Add Transaction
+        </h1>
+
+        <form on:submit|preventDefault={handleSubmit}>
+            <div class="flex flex-line justify-center">
                 <input
-                    type="radio"
-                    name="options"
-                    data-title="Income"
-                    class="btn btn-income"
+                    type="date"
+                    placeholder="Date"
+                    bind:value={dateInputValue}
+                    class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
                 />
                 <input
-                    type="radio"
-                    name="options"
-                    data-title="Expense"
-                    class="btn btn-expense"
-                    checked
+                    type="number"
+                    placeholder="Amount"
+                    bind:value={amountInputValue}
+                    class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
+                    step="100"
+                    id="amountInput"
                 />
+
+                <div class="join">
+                    <select
+                        class="select input-bordered join-item mr-4"
+                        bind:value={categoryInputValue}
+                    >
+                        <option disabled selected>Category</option>
+                        <option>Food</option>
+                        <option>Daily</option>
+                        <option>Entertainment</option>
+                    </select>
+                </div>
+                <div class="btn-group mr-4">
+                    <input
+                        type="radio"
+                        name="options"
+                        data-title="Income"
+                        class="btn btn-income"
+                        bind:group={transactionType}
+                        value="Income"
+                    />
+                    <input
+                        type="radio"
+                        name="options"
+                        data-title="Expense"
+                        class="btn btn-expense"
+                        bind:group={transactionType}
+                        value="Expense"
+                    />
+
+                    <div class="join">
+                        <select
+                            class="select input-bordered join-item mr-4"
+                            bind:value={category}
+                        >
+                            <option disabled selected>Category</option>
+                            <option>Food</option>
+                            <option>Daily</option>
+                            <option>Entertainment</option>
+                        </select>
+                    </div>
+                    <div class="btn-group mr-4">
+                        <input
+                            type="radio"
+                            name="options"
+                            data-title="Income"
+                            class="btn btn-income"
+                        />
+                        <input
+                            type="radio"
+                            name="options"
+                            data-title="Expense"
+                            class="btn btn-expense"
+                            checked
+                        />
+                    </div>
+                    <button
+                        class="btn font-bold custom-color uppercase"
+                        on:click|preventDefault={() => {
+                            addTransaction(
+                                Timestamp.fromDate(new Date(dateInputValue)),
+                                amountInputValue,
+                                categoryInputValue
+                            );
+                        }}
+                    >
+                        +Add
+                    </button>
+                </div>
             </div>
-            <button
-            class="btn font-bold custom-color uppercase"
-            on:click|preventDefault={() => {
-                addTransaction(
-                    Timestamp.fromDate(new Date(dateInputValue)),
-                    amountInputValue,
-                    categoryInputValue
-                );
-            }}
-        >
-            +Add
-        </button>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 <style>

@@ -5,11 +5,9 @@
     export let date: Timestamp;
     export let amount: number;
     export let category: string;
-    console.log(date);
-    console.log(category);
 
     // data converter
-    let dateObject = new Date(date);
+    let dateObject = new Date(date.toDate());
     let year = dateObject.getFullYear();
     let month = (dateObject.getMonth() + 1).toString().padStart(2, '0'); // Add 1 to month since it's zero-based
     let day = dateObject.getDate().toString().padStart(2, '0');
