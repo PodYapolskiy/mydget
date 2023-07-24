@@ -28,7 +28,7 @@
             transactions.forEach((doc) => {
                 const transaction = {
                     id: doc.id,
-                    date: doc.get('date').toDate(),
+                    date: doc.get('date'),
                     amount: doc.get('amount'),
                     category: doc.get('category')
                 } satisfies TransactionType;

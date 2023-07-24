@@ -1,12 +1,13 @@
 <script lang="ts">
     import format from 'date-fns/format';
+    import type { Timestamp } from 'firebase/firestore';
+
     export let id: string;
+    export let date: Timestamp;
     export let amount: number;
     export let category: string;
-    export let date: Date;
 
-    const stringDate = format(date, 'dd.MM.yyyy');
-
+    const stringDate = format(date.toDate(), 'dd.MM.yyyy');
     const transactionPath = `/transactions/${id}`;
 </script>
 

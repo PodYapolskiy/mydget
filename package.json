@@ -46,6 +46,8 @@
         "*.{js,ts,svelte,json} !package-lock.json": "prettier --plugin-search-dir . --check . && eslint . "
     },
     "dependencies": {
-        "date-fns": "^2.30.0"
+        "@types/uuid": "^9.0.2",
+        "date-fns": "^2.30.0",
+        "uuid": "^9.0.0"
     }
 }

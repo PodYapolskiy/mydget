@@ -1,15 +1,31 @@
 <script lang="ts">
-    // import { writable } from 'svelte/store';
-    // import type { Transaction } from '../../lib/types';
+    import {
+        doc,
+        getDoc,
+        setDoc,
+        collection,
+        Timestamp
+    } from 'firebase/firestore';
+    import { onMount } from 'svelte';
+    import { v4 as uuidv4 } from 'uuid'; // generate random id
 
+    import { db } from '$lib/fb';
+    import type { TransactionType } from '$lib/types';
+  
     // Declare and initialize the variables
     let amount = 0;
     let category = 'Category';
     let time = '';
 
-    // // Create a writable store for transactions
-    // const transactions = writable<Transaction[]>([]);
+    // array of transactions
+    export let transactions: TransactionType[] = [];
 
+    // default transaction input form values
+    let dateInputValue = new Date(); // Timestamp.fromDate(new Date())
+    let amountInputValue: number;
+    let categoryInputValue: string;
+    let transactionType: string;
+    
     // Define the handleSubmit function
     function handleSubmit() {
         if (
@@ -50,36 +66,45 @@
         }
     }
 
-    //     // Create a new transaction object
-    //     const newTransaction: Transaction = {
-    //         amount,
-    //         category,
-    //         time
-    //     };
+    // get user email
+    const userID = 'rt3bWUYTLYA08n8pL7xq'; // TODO: change
+    const userRef = doc(db, `users/${userID}`);
+    onMount(async () => {
+        const user = await getDoc(userRef);
+    });
 
-    //     // Update the transactions store
-    //     transactions.update((prevTransactions) => [
-    //         ...prevTransactions,
-    //         newTransaction
-    //     ]);
+    // path to transactions
+    const transactionsRef = collection(db, `users/${userID}/transactions`);
+    const addTransaction = (
+        date: Timestamp,
+        amount: number,
+        category: string
+    ) => {
+        // save negative amouiunt for expenses
+        amount = transactionType === 'Income' ? amount : -amount;
 
-    //     // Clear form inputs
-    //     amount = 0;
-    //     category = '';
-    //     time = '';
-    // }
+        const id = uuidv4();
+        const data = { date, amount, category } as TransactionType;
 
-    // const amountInput = document.getElementById('amountInput');
+        try {
+            // add doc to the server
+            setDoc(doc(db, `users/${userID}/transactions`, id), data);
 
-    // amountInput.addEventListener('input', function () {
-    //     const stepValue = parseInt(amountInput.getAttribute('step'));
-    //     const currentValue = parseInt(amountInput.value);
+            // add transaction to the array locally
+            data.id = id;
+            transactions.push(data satisfies TransactionType);
+            transactions = transactions; // reactivity
+            console.log(transactions);
 
-    //     // Check if the input value is a multiple of the step value
-    //     // If not, round it to the nearest multiple of the step value
-    //     const newValue = Math.round(currentValue / stepValue) * stepValue;
-    //     amountInput.value = newValue;
-    // });
+            // clean up input fiels if success
+            dateInputValue = new Date();
+            amountInputValue = 0;
+            categoryInputValue = 'Category';
+        } catch (error) {
+            // TODO: show a modal with error
+            console.log(error);
+        }
+    };
 </script>
 
 <dialog id="my_modal_1" class="modal">
@@ -99,20 +124,51 @@
     <h1 class="font-bold text-2xl text-left text-gray-800 mb-8">
         Add Transaction
     </h1>
+
     <form on:submit|preventDefault={handleSubmit}>
-        <div class="flex flex-line justify-center">
+    <div class="flex flex-line justify-center">
+        <input
+            type="date"
+            placeholder="Date"
+            bind:value={dateInputValue}
+            class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
+        />
+        <input
+            type="number"
+            placeholder="Amount"
+            bind:value={amountInputValue}
+            class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
+            step="100"
+            id="amountInput"
+        />
+
+        <div class="join">
+            <select
+                class="select input-bordered join-item mr-4"
+                bind:value={categoryInputValue}
+            >
+                <option disabled selected>Category</option>
+                <option>Food</option>
+                <option>Daily</option>
+                <option>Entertainment</option>
+            </select>
+        </div>
+        <div class="btn-group mr-4">
             <input
-                type="date"
-                placeholder="Date"
-                class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
-                bind:value={time}
+                type="radio"
+                name="options"
+                data-title="Income"
+                class="btn btn-income"
+                bind:group={transactionType}
+                value="Income"
             />
             <input
-                type="number"
-                placeholder="Amount"
-                class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
-                id="amountInput"
-                bind:value={amount}
+                type="radio"
+                name="options"
+                data-title="Expense"
+                class="btn btn-expense"
+                bind:group={transactionType}
+                value="Expense"
             />
 
             <div class="join">
@@ -141,7 +197,18 @@
                     checked
                 />
             </div>
-            <button class="btn font-bold custom-color uppercase"> +Add </button>
+            <button
+            class="btn font-bold custom-color uppercase"
+            on:click|preventDefault={() => {
+                addTransaction(
+                    Timestamp.fromDate(new Date(dateInputValue)),
+                    amountInputValue,
+                    categoryInputValue
+                );
+            }}
+        >
+            +Add
+        </button>
         </div>
     </form>
 </div>
