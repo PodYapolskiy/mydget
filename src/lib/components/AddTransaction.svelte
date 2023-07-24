@@ -11,6 +11,11 @@
 
     import { db } from '$lib/fb';
     import type { TransactionType } from '$lib/types';
+  
+    // Declare and initialize the variables
+    let amount = 0;
+    let category = 'Category';
+    let time = '';
 
     // array of transactions
     export let transactions: TransactionType[] = [];
@@ -20,6 +25,46 @@
     let amountInputValue: number;
     let categoryInputValue: string;
     let transactionType: string;
+    
+    // Define the handleSubmit function
+    function handleSubmit() {
+        if (
+            amount <= 0 ||
+            !category ||
+            category === 'Category' ||
+            !time ||
+            amount > 1000000000
+        ) {
+            // alert('Please fill in all fields with valid data.');
+            const modal = document.getElementById(
+                'my_modal_1'
+            ) as HTMLDialogElement;
+            const errorMessage = document.getElementById(
+                'error_message'
+            ) as HTMLParagraphElement;
+            errorMessage.innerHTML =
+                'Please fill in all fields with valid data.';
+            if (!time) {
+                errorMessage.innerHTML += '<br>Please select a date.';
+            }
+            if (!amount) {
+                errorMessage.innerHTML += '<br>Amount cannot be 0.';
+            }
+            if (amount < 0) {
+                errorMessage.innerHTML += '<br>Amount cannot be negative.';
+            }
+            if (amount > 1000000000) {
+                errorMessage.innerHTML +=
+                    '<br>Amount cannot be greater than 1 billion.';
+            }
+            if (!category || category === 'Category') {
+                errorMessage.innerHTML += '<br>Please select a category.';
+            }
+
+            modal.showModal();
+            return;
+        }
+    }
 
     // get user email
     const userID = 'rt3bWUYTLYA08n8pL7xq'; // TODO: change
@@ -62,6 +107,17 @@
     };
 </script>
 
+<dialog id="my_modal_1" class="modal">
+    <form method="dialog" class="modal-box">
+        <h3 class="font-bold text-lg">Invalid input!</h3>
+        <p id="error_message" class="py-4" />
+        <div class="modal-action">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+        </div>
+    </form>
+</dialog>
+
 <div
     class="flex max-w-5xl flex-col mx-auto px-12 pt-6 pb-6 bg-gray-100 custom-font"
 >
@@ -69,6 +125,7 @@
         Add Transaction
     </h1>
 
+    <form on:submit|preventDefault={handleSubmit}>
     <div class="flex flex-line justify-center">
         <input
             type="date"
@@ -113,8 +170,34 @@
                 bind:group={transactionType}
                 value="Expense"
             />
-        </div>
-        <button
+
+            <div class="join">
+                <select
+                    class="select input-bordered join-item mr-4"
+                    bind:value={category}
+                >
+                    <option disabled selected>Category</option>
+                    <option>Food</option>
+                    <option>Daily</option>
+                    <option>Entertainment</option>
+                </select>
+            </div>
+            <div class="btn-group mr-4">
+                <input
+                    type="radio"
+                    name="options"
+                    data-title="Income"
+                    class="btn btn-income"
+                />
+                <input
+                    type="radio"
+                    name="options"
+                    data-title="Expense"
+                    class="btn btn-expense"
+                    checked
+                />
+            </div>
+            <button
             class="btn font-bold custom-color uppercase"
             on:click|preventDefault={() => {
                 addTransaction(
@@ -126,7 +209,8 @@
         >
             +Add
         </button>
-    </div>
+        </div>
+    </form>
 </div>
 
 <style>

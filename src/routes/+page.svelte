@@ -1,9 +1,9 @@
 <script>
     import header from '$lib/images/about_img/hero.jpg';
-    import feature1 from '$lib/images/about_img/feat_1.png';
-    import feature2 from '$lib/images/about_img/feat_2.png';
-    import feature3 from '$lib/images/about_img/feat_3.png';
-    import feature4 from '$lib/images/about_img/feat_4.png';
+    import feature1 from '$lib/images/about_img/feat_1.svg';
+    import feature2 from '$lib/images/about_img/feat_2.svg';
+    import feature3 from '$lib/images/about_img/feat_3.svg';
+    import feature4 from '$lib/images/about_img/feat_4.svg';
     import sourse1 from '$lib/images/about_img/sourse_1.png';
     import sourse2 from '$lib/images/about_img/sourse_2.png';
     import sourse3 from '$lib/images/about_img/sourse_3.png';
@@ -14,11 +14,12 @@
     <meta name="author" content="Ivan Golov" />
     <meta name="description" content="Project description page " />
     <meta name="keywords" content="features finances feedback guideline" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </svelte:head>
 
 <!-- Header -->
 <header class="header">
-    <div class="mx-auto header-conteiner">
+    <div class="mx-auto header-container">
         <div class="header-content">
             <div>
                 <h1>
@@ -124,6 +125,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Fill out your transactions every day
@@ -136,6 +140,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use a categorization system for your
@@ -149,6 +156,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use philtres and add usefull description
@@ -170,6 +180,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Analyze your finance with beautiful, simple and
@@ -183,6 +196,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >See where your money goes and where they come
@@ -196,6 +212,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >See whether you spend less than you earn in one
@@ -218,6 +237,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Use the six-jags system
@@ -230,6 +252,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Fill up your wish list
@@ -242,6 +267,9 @@
                                 type="checkbox"
                                 class="checkbox checkbox-lg"
                                 checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <span class="label-text"
                                 >Increase your income, not cut your expenses
@@ -270,7 +298,10 @@
                     these six steps.</a
                 >
             </div>
-            <figure><img src={sourse1} alt="sourse_1" /></figure>
+            <a
+                href="https://bettermoneyhabits.bankofamerica.com/en/saving-budgeting/creating-a-budget"
+                ><figure><img src={sourse1} alt="sourse_1" /></figure></a
+            >
         </div>
 
         <div class="card w-96 bg-base-100 shadow-xl">
@@ -285,7 +316,10 @@
                     progress.</a
                 >
             </div>
-            <figure><img src={sourse2} alt="sourse_2" /></figure>
+            <a
+                href="https://www.ramseysolutions.com/budgeting/ways-to-be-more-organized-with-your-money-this-year"
+                ><figure><img src={sourse2} alt="sourse_2" /></figure></a
+            >
         </div>
 
         <div class="card w-96 bg-base-100 shadow-xl">
@@ -301,7 +335,10 @@
                     create and manage budgets in Fabit.</a
                 >
             </div>
-            <figure><img src={sourse3} alt="sourse_3" /></figure>
+            <a
+                href="https://fabit.app/en/2022/12/budget-how-to-organize-your-expenses/"
+                ><figure><img src={sourse3} alt="sourse_3" /></figure></a
+            >
         </div>
     </div>
 </section>
@@ -312,38 +349,6 @@
         <div
             class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2"
         >
-            <div class="max-w-xl lg:max-w-lg">
-                <h2
-                    class="text-3xl font-bold tracking-tight text-black sm:text-4xl subscribe_title"
-                >
-                    Subscribe to our newsletter
-                </h2>
-                <p
-                    class="mt-4 text-lg leading-8 text-black-300 subscribe_content"
-                >
-                    We welcome new subscribers and try to create useful and
-                    relevant content.
-                </p>
-                <div class="mt-6 flex max-w-md gap-x-4">
-                    <label for="email-address" class="sr-only"
-                        >Email address</label
-                    >
-                    <input
-                        id="email-address"
-                        name="email"
-                        type="email"
-                        autocomplete="email"
-                        required
-                        class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
-                        placeholder="Enter your email"
-                    />
-                    <button
-                        type="submit"
-                        class="flex-none rounded-md subsribe_btn px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm"
-                        >Subscribe</button
-                    >
-                </div>
-            </div>
             <dl
                 class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2"
             >
@@ -401,6 +406,38 @@
                     </dd>
                 </div>
             </dl>
+            <div class="max-w-xl lg:max-w-lg">
+                <h2
+                    class="text-3xl font-bold tracking-tight text-black sm:text-4xl subscribe_title"
+                >
+                    Subscribe to our newsletter
+                </h2>
+                <p
+                    class="mt-4 text-lg leading-8 text-black-300 subscribe_content"
+                >
+                    We welcome new subscribers and try to create useful and
+                    relevant content.
+                </p>
+                <div class="mt-6 flex max-w-md gap-x-4">
+                    <label for="email-address" class="sr-only"
+                        >Email address</label
+                    >
+                    <input
+                        id="email-address"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        required
+                        class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+                        placeholder="Enter your email"
+                    />
+                    <button
+                        type="submit"
+                        class="flex-none rounded-md subsribe_btn px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm"
+                        >Subscribe</button
+                    >
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -418,7 +455,7 @@
         color: #007349;
     }
     /* Header */
-    .header-conteiner {
+    .header-container {
         display: flex;
         justify-content: space-between;
         column-gap: 20px;
@@ -434,7 +471,7 @@
     }
 
     .header-content {
-        padding-top: 70px;
+        padding-top: 50px;
     }
 
     .header-content h1 {
@@ -544,5 +581,123 @@
 
     .subscribe_content {
         font-size: 20px;
+    }
+
+    /* Media */
+    @media (max-width: 800px) {
+        .title-2 h2 {
+            font-size: 35px;
+        }
+        /* Header */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 0px;
+            padding: 30px 20px;
+            max-width: 800px;
+        }
+
+        .highlight {
+            font-size: 45px;
+        }
+
+        .header-btn {
+            margin: 10px 0px;
+            width: 20rem;
+        }
+
+        .header-content {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            line-height: 1;
+            font-size: 35px;
+            font-weight: 600;
+        }
+        .header-content p {
+            padding-top: 10px;
+            font-size: 15px;
+        }
+
+        .header_img {
+            display: none;
+        }
+        /* Features */
+        .feature-card p {
+            font-size: 15px;
+        }
+        .feature-card {
+            flex: 1 1 0;
+            max-width: 315px;
+            padding: 10px 0;
+        }
+
+        /* Guidline */
+        .steps-list {
+            display: flex;
+            flex-direction: column;
+            padding: 0px 20px;
+        }
+
+        .step {
+            display: flex;
+            column-gap: 20px;
+        }
+
+        .step h1 {
+            font-size: 100px;
+        }
+
+        .step-content {
+            margin: 20px 25px;
+        }
+
+        .step-content h2 {
+            font-size: 20px;
+        }
+
+        .suggestions {
+            padding-top: 10px;
+        }
+
+        .label-text {
+            font-size: 15px;
+            padding: 0 10px;
+        }
+
+        /* Usefull sourses */
+        .usefull_sourses {
+            column-gap: 0px;
+        }
+        .card-body a {
+            font-size: 15px;
+        }
+        .card-title {
+            font-size: 18px;
+            line-height: 1;
+        }
+        .card {
+            padding: 10px 10px;
+        }
+        .card img {
+            display: none;
+        }
+
+        .card-body {
+            padding: 0 0;
+        }
+        /* Subscribe*/
+        .subscribe_title {
+            font-size: 30px;
+        }
+        .subscribe_subtitle {
+            font-size: 20px;
+        }
+
+        .subscribe_content {
+            font-size: 15px;
+        }
     }
 </style>

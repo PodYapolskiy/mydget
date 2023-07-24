@@ -9,7 +9,7 @@
         },
 
         {
-            name: 'Alexandra',
+            name: 'Aleksandra',
             surname: 'Kuzmich',
             position: 'Web Developer',
             bio: 'Pigeon stealer',
@@ -36,7 +36,7 @@
             name: 'Ivan',
             surname: 'Golov',
             position: 'Figma master',
-            bio: 'I am a daisyUI master and Taiwind CSS lover',
+            bio: 'CSS master slave',
             image: '/igolov.jpg'
         }
     ];
@@ -47,7 +47,9 @@
 >
     <main class="p-6">
         <h1 class="text-4xl font-bold mb-4">Our Team</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 team_members"
+        >
             {#each teamMembers as member}
                 <div class="bg-white rounded-lg shadow p-4">
                     <img
@@ -70,5 +72,21 @@
         font-size: 40px;
         text-align: center;
         color: #007349;
+    }
+
+    @media (max-width: 900px) {
+        .text-4xl {
+            font-size: 35px;
+        }
+        .w-full {
+            width: 100%;
+        }
+
+        .h-48 {
+            height: 500px;
+        }
+        .team_members {
+            text-align: center;
+        }
     }
 </style>
