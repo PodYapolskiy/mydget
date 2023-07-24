@@ -36,7 +36,7 @@
     <td>{stringDate}</td>
     <th>
         <a href={transactionPath}>
-            <button class="btn btn-ghost btn-xs">edit</button>
+            <button class="btn btn-ghost btn-s">edit</button>
         </a>
     </th>
 </tr>

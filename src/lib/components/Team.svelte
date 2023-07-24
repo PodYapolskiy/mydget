@@ -9,7 +9,7 @@
         },
 
         {
-            name: 'Alexandra',
+            name: 'Aleksandra',
             surname: 'Kuzmich',
             position: 'Web Developer',
             bio: 'Pigeon stealer',
@@ -36,7 +36,7 @@
             name: 'Ivan',
             surname: 'Golov',
             position: 'Figma master',
-            bio: 'I am a daisyUI master and Taiwind CSS lover',
+            bio: 'CSS master slave',
             image: '/igolov.jpg'
         }
     ];
