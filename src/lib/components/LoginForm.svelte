@@ -31,7 +31,7 @@
                     // Signed in
                     const user = userCredential.user;
                     localStorage.setItem('uid', user.uid);
-                    goto('/');
+                    goto('/transactions');
                 })
                 .catch((error) => {
                     console.log(error);
@@ -47,7 +47,7 @@
                         user_uuid: user.uid
                     });
 
-                    goto('/');
+                    goto('/transactions');
                 })
                 .catch((error) => {
                     console.log(error);
@@ -72,7 +72,7 @@
                 //     user_uuid: user.uid
                 // });
                 localStorage.setItem('uid', user.uid);
-                goto('/');
+                goto('/transactions');
             })
             .catch((error) => {
                 console.log(error);
