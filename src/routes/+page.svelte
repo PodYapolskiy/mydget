@@ -31,7 +31,7 @@
                     your finances and achieve your goals and dreams.
                 </p>
             </div>
-            <a href="./signup"
+            <a href="./login"
                 ><button class="btn btn-wide bg-slate-300 header-btn">
                     Let's start
                 </button></a
