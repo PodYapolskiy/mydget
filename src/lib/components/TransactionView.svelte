@@ -1,6 +1,8 @@
 <script lang="ts">
+    import type { Timestamp } from "firebase/firestore";
+
     export let id: string;
-    export let date: Date;
+    export let date: Timestamp;
     export let amount: number;
     export let category: string;
 </script>
@@ -28,7 +30,7 @@
                 <div>
                     <input
                         class="input input-bordered join-item"
-                        placeholder={date.toDateString()}
+                        placeholder={date.toDate().toString()}
                         value={date}
                     />
                 </div>

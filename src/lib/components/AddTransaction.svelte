@@ -1,54 +1,65 @@
 <script lang="ts">
     import {
-        addDoc,
-        collection,
         doc,
         getDoc,
+        setDoc,
+        collection,
         Timestamp
     } from 'firebase/firestore';
+    import { onMount } from 'svelte';
+    import { v4 as uuidv4 } from 'uuid'; // generate random id
+
     import { db } from '$lib/fb';
     import type { TransactionType } from '$lib/types';
-    import { onMount } from 'svelte';
 
-    const userID = 'rt3bWUYTLYA08n8pL7xq';
-
-    // Array of transactions
+    // array of transactions
     export let transactions: TransactionType[] = [];
 
-    let date = new Date();
-    let amount = 0;
-    let category: string;
+    // default transaction input form values
+    let dateInputValue = new Date(); // Timestamp.fromDate(new Date())
+    let amountInputValue: number;
+    let categoryInputValue: string;
     let transactionType: string;
 
+    // get user email
+    const userID = 'rt3bWUYTLYA08n8pL7xq'; // TODO: change
     const userRef = doc(db, `users/${userID}`);
     onMount(async () => {
         const user = await getDoc(userRef);
-        console.log(user.get('email'));
     });
 
+    // path to transactions
     const transactionsRef = collection(db, `users/${userID}/transactions`);
+    const addTransaction = (
+        date: Timestamp,
+        amount: number,
+        category: string
+    ) => {
+        // save negative amouiunt for expenses
+        amount = transactionType == 'Income' ? amount : -amount;
 
-    // Time conversion from string to firebase timestamp
-    const FirebaseTimestamp = Timestamp.fromDate(date);
-    function addTransaction() {
-        // Add transaction to the database
-        addDoc(transactionsRef, {
-            date: FirebaseTimestamp,
-            amount: amount,
-            category: category,
-            type: transactionType
-        });
+        const id = uuidv4();
+        const data = { date, amount, category } as TransactionType;
 
-        // Add transaction to the array locally
-        // transactions.push({
-        //     amount,
-        //     category,
-        //     type: transactionType,
-        //     date: FirebaseTimestamp,
-        //     id: 'ielufbIYGFQUYE4212'
-        // });
-        console.log(transactions);
-    }
+        try {
+            // add doc to the server
+            setDoc(doc(db, `users/${userID}/transactions`, id), data);
+
+            // add transaction to the array locally
+            data.id = id;
+            transactions.push(data satisfies TransactionType);
+            transactions = transactions; // reactivity
+            console.log(transactions);
+
+            // clean up input fiels if success
+            dateInputValue = new Date();
+            amountInputValue = 0;
+            categoryInputValue = 'Category';
+        } catch (error) {
+            // TODO: show a modal with error
+            console.log(error);
+        }
+    };
 </script>
 
 <div
@@ -62,13 +73,13 @@
         <input
             type="date"
             placeholder="Date"
-            bind:value={date}
+            bind:value={dateInputValue}
             class="input input-bordered w-1/4 p-4 max-w-xs mr-4"
         />
         <input
             type="number"
             placeholder="Amount"
-            bind:value={amount}
+            bind:value={amountInputValue}
             class="input input-bordered text-gray-800 w-1/6 max-w-xs mr-4"
             step="100"
             id="amountInput"
@@ -77,7 +88,7 @@
         <div class="join">
             <select
                 class="select input-bordered join-item mr-4"
-                bind:value={category}
+                bind:value={categoryInputValue}
             >
                 <option disabled selected>Category</option>
                 <option>Food</option>
@@ -105,7 +116,13 @@
         </div>
         <button
             class="btn font-bold custom-color uppercase"
-            on:click|preventDefault={addTransaction}
+            on:click|preventDefault={() => {
+                addTransaction(
+                    Timestamp.fromDate(new Date(dateInputValue)),
+                    amountInputValue,
+                    categoryInputValue
+                );
+            }}
         >
             +Add
         </button>
