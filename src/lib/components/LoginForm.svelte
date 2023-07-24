@@ -8,7 +8,7 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    import { addDoc, collection } from 'firebase/firestore';
+    import { doc, addDoc, setDoc, collection } from 'firebase/firestore';
     import { db } from '$lib/fb';
 
     export let title: string;
@@ -41,10 +41,9 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    const docRef = addDoc(collection(db, 'users'), {
-                        email: user.email,
-                        // eslint-disable-next-line camelcase
-                        user_uuid: user.uid
+
+                    setDoc(doc(db, 'users', user.uid), {
+                        email: user.email
                     });
 
                     goto('/transactions');
@@ -66,6 +65,11 @@
 
                 const user = result.user;
                 console.log(user);
+
+                setDoc(doc(db, 'users', user.uid), {
+                    email: user.email
+                });
+                
                 // const docRef = addDoc(collection(db, 'users'), {
                 //     email: user.email,
                 //     // eslint-disable-next-line camelcase
