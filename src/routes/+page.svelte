@@ -1,9 +1,9 @@
 <script>
     import header from '$lib/images/about_img/hero.jpg';
-    import feature1 from '$lib/images/about_img/feat_1.png';
-    import feature2 from '$lib/images/about_img/feat_2.png';
-    import feature3 from '$lib/images/about_img/feat_3.png';
-    import feature4 from '$lib/images/about_img/feat_4.png';
+    import feature1 from '$lib/images/about_img/feat_1.svg';
+    import feature2 from '$lib/images/about_img/feat_2.svg';
+    import feature3 from '$lib/images/about_img/feat_3.svg';
+    import feature4 from '$lib/images/about_img/feat_4.svg';
     import sourse1 from '$lib/images/about_img/sourse_1.png';
     import sourse2 from '$lib/images/about_img/sourse_2.png';
     import sourse3 from '$lib/images/about_img/sourse_3.png';
@@ -24,27 +24,77 @@
 </svelte:head>
 
 <!-- Header -->
-<body>
-    <div class="wraper">
-        <header class="header">
-            <div class="mx-auto header-container">
-                <div class="header-content">
-                    <div>
-                        <h1>
-                            <span class="highlight">Mydget</span> <br /> Web Application
-                            & Financial freedom
-                        </h1>
-                        <p>
-                            Our project will allow you to quickly and
-                            effectively manage your finances and achieve your
-                            goals and dreams.
-                        </p>
-                    </div>
-                    <a href="./signup"
-                        ><button class="btn btn-wide bg-slate-300 header-btn">
-                            Let's start
-                        </button></a
-                    >
+<header class="header">
+    <div class="mx-auto header-container">
+        <div class="header-content">
+            <div>
+                <h1>
+                    <span class="highlight">Mydget</span> <br /> Web Application
+                    & Financial freedom
+                </h1>
+                <p>
+                    Our project will allow you to quickly and effectively manage
+                    your finances and achieve your goals and dreams.
+                </p>
+            </div>
+            <a href="./login"
+                ><button class="btn btn-wide bg-slate-300 header-btn">
+                    Let's start
+                </button></a
+            >
+        </div>
+        <div class="header_hero">
+            <img
+                class="header_img"
+                src={header}
+                alt="financial web application"
+            />
+        </div>
+    </div>
+</header>
+
+<!-- Features -->
+<section class="features bg-slate-50">
+    <div class="features-list">
+        <div class="container mx-auto">
+            <div class="title-2">
+                <h2>Features</h2>
+            </div>
+            <div class="features-row">
+                <div class="feature-card">
+                    <img
+                        class="feature-card-img"
+                        src={feature1}
+                        alt="feature_1"
+                    />
+                    <h3 class="feature-card-title">Comfortable design</h3>
+                    <p>Our interface is intuitive and simple to use.</p>
+                </div>
+
+                <div class="feature-card">
+                    <img
+                        class="feature-card-img"
+                        src={feature2}
+                        alt="feature_2"
+                    />
+                    <h3 class="feature-card-title">Multiplatform</h3>
+                    <p>
+                        Our app is customized for different devices and
+                        platforms.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <img
+                        class="feature-card-img"
+                        src={feature3}
+                        alt="feature_3"
+                    />
+                    <h3 class="feature-card-title">Statistics</h3>
+                    <p>
+                        We have integrated efficient systems to record and
+                        analyze your revenues and expenses.
+                    </p>
                 </div>
                 <div class="header_hero">
                     <img
@@ -54,59 +104,117 @@
                     />
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</section>
 
-        <!-- Features -->
-        <section class="features bg-slate-50">
-            <div class="features-list">
-                <div class="container mx-auto">
-                    <div class="title-2">
-                        <h2>Features</h2>
+<!-- Guidline -->
+<section class="guidline">
+    <div class="title-2">
+        <h2>How to use</h2>
+    </div>
+    <div class="steps-list">
+        <div class="step">
+            <h1>1</h1>
+            <div class="step-content">
+                <h2>Track your cash flow</h2>
+                <div class="suggestions">
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
+                            />
+                            <span class="label-text"
+                                >Fill out your transactions every day
+                            </span>
+                        </label>
                     </div>
-                    <div class="features-row">
-                        <div class="feature-card">
-                            <img
-                                class="feature-card-img"
-                                src={feature1}
-                                alt="feature_1"
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
-                            <h3 class="feature-card-title">
-                                Comfortable design
-                            </h3>
-                            <p>Our interface is intuitive and simple to use.</p>
-                        </div>
-
-                        <div class="feature-card">
-                            <img
-                                class="feature-card-img"
-                                src={feature2}
-                                alt="feature_2"
+                            <span class="label-text"
+                                >Use a categorization system for your
+                                transactions</span
+                            >
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
-                            <h3 class="feature-card-title">Multiplatform</h3>
-                            <p>
-                                Our app is customized for different devices and
-                                platforms.
-                            </p>
-                        </div>
+                            <span class="label-text"
+                                >Use philtres and add usefull description
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                        <div class="feature-card">
-                            <img
-                                class="feature-card-img"
-                                src={feature3}
-                                alt="feature_3"
+        <div class="step">
+            <h1>2</h1>
+            <div class="step-content">
+                <h2>Understand your financial trends</h2>
+                <div class="suggestions">
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
-                            <h3 class="feature-card-title">Statistics</h3>
-                            <p>
-                                We have integrated efficient systems to record
-                                and analyze your revenues and expenses.
-                            </p>
-                        </div>
-
-                        <div class="feature-card">
-                            <img
-                                class="feature-card-img"
-                                src={feature4}
-                                alt="feature_4"
+                            <span class="label-text"
+                                >Analyze your finance with beautiful, simple and
+                                easy to understand graphic
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
+                            />
+                            <span class="label-text"
+                                >See where your money goes and where they come
+                                from every month</span
+                            >
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
                             />
                             <h3 class="feature-card-title">
                                 Multifunctionality
@@ -120,105 +228,55 @@
                 </div>
             </div>
         </section>
-
-        <!-- Guidline -->
-        <section class="guidline">
-            <div class="title-2">
-                <h2>How to use</h2>
-            </div>
-            <div class="steps-list">
-                <div class="step">
-                    <h1>1</h1>
-                    <div class="step-content">
-                        <h2>Track your cash flow</h2>
-                        <div class="suggestions">
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >Fill out your transactions every day
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >Use a categorization system for your
-                                        transactions</span
-                                    >
-                                </label>
-                            </div>
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >Use philtres and add usefull
-                                        description
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
+        <div class="step">
+            <h1>3</h1>
+            <div class="step-content">
+                <h2>Planning your budget</h2>
+                <div class="suggestions">
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
+                            />
+                            <span class="label-text"
+                                >Use the six-jags system
+                            </span>
+                        </label>
                     </div>
-                </div>
-
-                <div class="step">
-                    <h1>2</h1>
-                    <div class="step-content">
-                        <h2>Understand your financial trends</h2>
-                        <div class="suggestions">
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >Analyze your finance with beautiful,
-                                        simple and easy to understand graphic
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >See where your money goes and where
-                                        they come from every month</span
-                                    >
-                                </label>
-                            </div>
-                            <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        class="checkbox checkbox-lg"
-                                        checked={true}
-                                    />
-                                    <span class="label-text"
-                                        >See whether you spend less than you
-                                        earn in one place and on 1 tap
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
+                            />
+                            <span class="label-text"
+                                >Fill up your wish list
+                            </span>
+                        </label>
+                    </div>
+                    <div class="form-control">
+                        <label class="label cursor-pointer">
+                            <input
+                                type="checkbox"
+                                class="checkbox checkbox-lg"
+                                checked={true}
+                                on:click|preventDefault={() => {
+                                    return false;
+                                }}
+                            />
+                            <span class="label-text"
+                                >Increase your income, not cut your expenses
+                            </span>
+                        </label>
                     </div>
                 </div>
 

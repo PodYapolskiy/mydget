@@ -8,8 +8,8 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    // import { addDoc, collection } from 'firebase/firestore';
-    // import { db } from '$lib/fb';
+    import { addDoc, collection } from 'firebase/firestore';
+    import { db } from '$lib/fb';
 
     export let title: string;
 
@@ -31,7 +31,7 @@
                     // Signed in
                     const user = userCredential.user;
                     localStorage.setItem('uid', user.uid);
-                    goto('/');
+                    goto('/transactions');
                 })
                 .catch((error) => {
                     console.log(error);
@@ -41,13 +41,13 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    // const docRef = addDoc(collection(db, 'users'), {
-                    //     email: user.email,
-                    //     // eslint-disable-next-line camelcase
-                    //     user_uuid: user.uid
-                    // });
+                    const docRef = addDoc(collection(db, 'users'), {
+                        email: user.email,
+                        // eslint-disable-next-line camelcase
+                        user_uuid: user.uid
+                    });
 
-                    goto('/');
+                    goto('/transactions');
                 })
                 .catch((error) => {
                     console.log(error);
@@ -72,7 +72,7 @@
                 //     user_uuid: user.uid
                 // });
                 localStorage.setItem('uid', user.uid);
-                goto('/');
+                goto('/transactions');
             })
             .catch((error) => {
                 console.log(error);
