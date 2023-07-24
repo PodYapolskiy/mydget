@@ -6,6 +6,14 @@
     import logo from '$lib/images/about_img/logo.svg';
 </script>
 
+<svelte:head>
+    <title>About page</title>
+    <meta name="author" content="Mydget team" />
+    <meta name="description" content="Project description page" />
+    <meta name="keywords" content="team technolohical_stack CEO" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</svelte:head>
+
 <Welcome />
 
 <section
