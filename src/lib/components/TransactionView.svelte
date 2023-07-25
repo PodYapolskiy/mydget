@@ -1,5 +1,11 @@
 <script lang="ts">
+    import { goto } from '$app/navigation';
     import type { Timestamp } from 'firebase/firestore';
+    import { doc, updateDoc } from 'firebase/firestore';
+    import { onMount } from 'svelte';
+    // import Transaction from './Transaction.svelte';
+    import { db } from '$lib/fb';
+    import type { TransactionType } from '$lib/types';
 
     export let id: string;
     export let date: Timestamp;
@@ -9,9 +15,27 @@
     // data converter
     let dateObject = new Date(date.toDate());
     let year = dateObject.getFullYear();
-    let month = (dateObject.getMonth() + 1).toString().padStart(2, '0'); // Add 1 to month since it's zero-based
+    let month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
     let day = dateObject.getDate().toString().padStart(2, '0');
     let formattedDate = `${year}-${month}-${day}`;
+
+    let dateInputValue: Timestamp = date;
+    let amountInputValue: number = amount;
+    let categoryInputValue: string = category;
+
+    const updateTransaction = (
+        date: Timestamp,
+        amount: number,
+        category: string
+    ) => {
+        const userID = 'rt3bWUYTLYA08n8pL7xq';
+        const updatedData = { date, amount, category } as TransactionType;
+
+        const transactionRef = doc(db, `users/${userID}/transactions`, id);
+        updateDoc(transactionRef, updatedData);
+
+        goto('/transactions');
+    };
 </script>
 
 <div class="max-w-md mx-auto px-6 pt-1 pb-3 my-8 border border-custom">
@@ -56,7 +80,7 @@
                             type="number"
                             class="input input-bordered join-item w-56"
                             placeholder={amount.toString()}
-                            value={amount}
+                            bind:value={amountInputValue}
                         />
                     </div>
                 </div>
@@ -66,7 +90,7 @@
                 <!-- <input class="join" /> -->
                 <select
                     class="select input-bordered join-item mr-4 w-56 text-base font-medium"
-                    value={category}
+                    bind:value={category}
                 >
                     <option disabled selected>Category</option>
                     <option>Food</option>
@@ -77,8 +101,13 @@
             </div>
         </div>
     </div>
-    <div class="flex max-w-lg mx-auto justify-end mx-4 pb-1">
-        <button class="btn btn-normal w-36"> Save </button>
+    <div class="flex max-w-lg mx-auto justify-end mx-5 pb-1">
+        <button
+            class="btn btn-normal w-36"
+            on:click|preventDefault={() => {
+                updateTransaction(date, amountInputValue, categoryInputValue);
+            }}>Save</button
+        >
     </div>
 </div>
 
