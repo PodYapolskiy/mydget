@@ -50,7 +50,7 @@
 <FilterTransaction />
 
 <div class="overflow-x-auto ml-16 mr-16 pb-10 table-container">
-    <table class="table max-w-5xl">
+    <table class="table">
         <!-- head -->
         <thead>
             <tr class="text-base">
@@ -77,5 +77,10 @@
     .table th {
         background-color: #007349;
         color: #fefffe;
+    }
+    @media (max-width: 900px) {
+        .table-container {
+            margin: 15px 20px;
+        }
     }
 </style>

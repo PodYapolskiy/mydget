@@ -147,8 +147,8 @@
                         <option>Entertainment</option>
                     </select>
                 </div>
-                <div class="w-full md:w-1/5 py-2">
-                    <div class="flex items-center px-8">
+                <div class="w-full py-2">
+                    <div class="flex px-8">
                         <div class="btn-group mr-4 px-8 justify-center">
                             <input
                                 type="radio"
@@ -218,5 +218,13 @@
     }
     .btn {
         background-color: #ced0ce;
+    }
+
+    @media (max-width: 900px) {
+        .flex {
+            justify-content: center;
+        }
+    }
+    @media (mix-width: 1000px) {
     }
 </style>

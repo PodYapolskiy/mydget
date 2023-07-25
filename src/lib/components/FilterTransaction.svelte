@@ -35,8 +35,10 @@
     ::placeholder {
         color: black;
     }
-    /* .input-bordered {
-        border-color: #007349;
-        border-width: 1.5px;
-    } */
+    @media (max-width: 900px) {
+        .flex {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 </style>
