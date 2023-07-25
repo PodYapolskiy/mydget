@@ -8,8 +8,16 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    import { doc, addDoc, setDoc, collection } from 'firebase/firestore';
+    import { doc, setDoc, Timestamp } from 'firebase/firestore';
+
     import { db } from '$lib/fb';
+    import type { TransactionType } from '$lib/types';
+
+    const mockTransaction = {
+        date: Timestamp.fromDate(new Date()),
+        amount: 0,
+        category: 'Bruh'
+    } as TransactionType;
 
     export let title: string;
 
@@ -42,10 +50,18 @@
                     const user = userCredential.user;
                     console.log(user);
 
+                    // create user in firestore
                     setDoc(doc(db, 'users', user.uid), {
                         email: user.email
                     });
 
+                    // create a nessasary at least one doc to keep collection
+                    setDoc(
+                        doc(db, `users/${user.uid}/transactions`, 'Bruh ID'),
+                        mockTransaction
+                    );
+
+                    localStorage.setItem('uid', user.uid);
                     goto('/transactions');
                 })
                 .catch((error) => {
@@ -69,12 +85,12 @@
                 setDoc(doc(db, 'users', user.uid), {
                     email: user.email
                 });
-                
-                // const docRef = addDoc(collection(db, 'users'), {
-                //     email: user.email,
-                //     // eslint-disable-next-line camelcase
-                //     user_uuid: user.uid
-                // });
+
+                setDoc(
+                    doc(db, `users/${user.uid}/transactions`, 'Bruh ID'),
+                    mockTransaction
+                );
+
                 localStorage.setItem('uid', user.uid);
                 goto('/transactions');
             })
