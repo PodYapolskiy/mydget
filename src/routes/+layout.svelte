@@ -1,4 +1,5 @@
 <script lang="ts">
+    /* eslint-disable max-len */
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     import { app as App } from '$lib/fb';
 

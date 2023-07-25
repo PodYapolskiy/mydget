@@ -1,9 +1,7 @@
 import { dev } from '$app/environment';
-import { error } from '@sveltejs/kit';
 import { Timestamp } from 'firebase/firestore';
 
 import type { PageLoad } from './$types';
-import type { TransactionType } from '$lib/types';
 
 // we don't need any JS on this page, though we'll load
 // it in dev so that we get hot module replacement
@@ -19,5 +17,5 @@ export const load = (({ params }) => {
         date: Timestamp.fromDate(new Date()),
         amount: 50,
         category: 'Food'
-    } satisfies TransactionType;
+    };
 }) satisfies PageLoad;
