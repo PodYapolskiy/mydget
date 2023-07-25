@@ -6,3 +6,9 @@ export type TransactionType = {
     amount: number;
     category: string;
 };
+
+
+export type UserType = {
+    id: string,
+    email: string,
+};

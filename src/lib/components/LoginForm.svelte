@@ -8,8 +8,16 @@
         GoogleAuthProvider,
         signInWithPopup
     } from 'firebase/auth';
-    import { addDoc, collection } from 'firebase/firestore';
+    import { doc, setDoc, Timestamp } from 'firebase/firestore';
+
     import { db } from '$lib/fb';
+    import type { TransactionType } from '$lib/types';
+
+    const mockTransaction = {
+        date: Timestamp.fromDate(new Date()),
+        amount: 0,
+        category: 'Bruh'
+    } as TransactionType;
 
     export let title: string;
 
@@ -41,12 +49,19 @@
                 .then((userCredential) => {
                     const user = userCredential.user;
                     console.log(user);
-                    const docRef = addDoc(collection(db, 'users'), {
-                        email: user.email,
-                        // eslint-disable-next-line camelcase
-                        user_uuid: user.uid
+
+                    // create user in firestore
+                    setDoc(doc(db, 'users', user.uid), {
+                        email: user.email
                     });
 
+                    // create a nessasary at least one doc to keep collection
+                    setDoc(
+                        doc(db, `users/${user.uid}/transactions`, 'Bruh ID'),
+                        mockTransaction
+                    );
+
+                    localStorage.setItem('uid', user.uid);
                     goto('/transactions');
                 })
                 .catch((error) => {
@@ -66,11 +81,16 @@
 
                 const user = result.user;
                 console.log(user);
-                // const docRef = addDoc(collection(db, 'users'), {
-                //     email: user.email,
-                //     // eslint-disable-next-line camelcase
-                //     user_uuid: user.uid
-                // });
+
+                setDoc(doc(db, 'users', user.uid), {
+                    email: user.email
+                });
+
+                setDoc(
+                    doc(db, `users/${user.uid}/transactions`, 'Bruh ID'),
+                    mockTransaction
+                );
+
                 localStorage.setItem('uid', user.uid);
                 goto('/transactions');
             })
