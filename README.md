@@ -1,4 +1,4 @@
-# Mydget
+<h1 style="text-align: center;">Mydget</h1>
 
 Web application to track transactions and maintain budget
 
@@ -6,36 +6,37 @@ Web application to track transactions and maintain budget
 
 ## Developing
 
-1. Clone repository
-
 ```bash
+# 1. clone and open the repo
 git clone https://github.com/PodYapolskiy/mydget.git
+cd mydget
 ```
 
-2. Install dependencies
-
 ```bash
+# 2. install dependencies
 npm install
 ```
 
-3. Husky set up
-
 ```bash
+# 3. set up .husky pre-hooks
 npm run prepare
 ```
 
-4. Running
-
 ```bash
+# 4. see the development version
 npm run dev
 ```
 
 ## Building
 
-To create a production version of your app:
+```bash
+# build the app using adapter in svelte.config.js
+npm run build
+```
 
 ```bash
-npm run build
+# see the production version
+npm run preview
 ```
 
 ## Technology stack
