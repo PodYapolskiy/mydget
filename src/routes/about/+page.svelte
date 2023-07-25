@@ -1,4 +1,5 @@
 <script lang="ts">
+    /* eslint-disable max-len */
     import TechnologicalStack from '$lib/components/TechnologicalStack.svelte';
     import Team from '$lib/components/Team.svelte';
     import Welcome from '$lib/components/Welcome.svelte';

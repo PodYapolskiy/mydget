@@ -2,7 +2,6 @@
     import { goto } from '$app/navigation';
     import type { Timestamp } from 'firebase/firestore';
     import { doc, updateDoc } from 'firebase/firestore';
-    import { onMount } from 'svelte';
     // import Transaction from './Transaction.svelte';
     import { db } from '$lib/fb';
     import type { TransactionType } from '$lib/types';
@@ -13,15 +12,15 @@
     export let category: string;
 
     // data converter
-    let dateObject = new Date(date.toDate());
-    let year = dateObject.getFullYear();
-    let month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
-    let day = dateObject.getDate().toString().padStart(2, '0');
-    let formattedDate = `${year}-${month}-${day}`;
+    const dateObject = new Date(date.toDate());
+    const year = dateObject.getFullYear();
+    const month = (dateObject.getMonth() + 1).toString().padStart(2, '0');
+    const day = dateObject.getDate().toString().padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
 
-    let dateInputValue: Timestamp = date;
+    // const dateInputValue: Timestamp = date;
     let amountInputValue: number = amount;
-    let categoryInputValue: string = category;
+    const categoryInputValue: string = category;
 
     const updateTransaction = (
         date: Timestamp,

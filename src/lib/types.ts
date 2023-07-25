@@ -7,8 +7,7 @@ export type TransactionType = {
     category: string;
 };
 
-
 export type UserType = {
-    id: string,
-    email: string,
+    id: string;
+    email: string;
 };

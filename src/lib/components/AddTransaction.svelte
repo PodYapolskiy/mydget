@@ -1,21 +1,14 @@
 <script lang="ts">
-    import {
-        doc,
-        getDoc,
-        setDoc,
-        collection,
-        Timestamp
-    } from 'firebase/firestore';
-    import { onMount } from 'svelte';
+    import { doc, setDoc, Timestamp } from 'firebase/firestore';
     import { v4 as uuidv4 } from 'uuid'; // generate random id
 
     import { db } from '$lib/fb';
     import type { TransactionType } from '$lib/types';
 
     // Declare and initialize the variables
-    let amount = 0;
-    let category = 'Category';
-    let time = '';
+    const amount = 0;
+    const category = 'Category';
+    const time = '';
 
     // array of transactions
     export let transactions: TransactionType[] = [];
@@ -68,13 +61,10 @@
 
     // get user email
     const userID = 'rt3bWUYTLYA08n8pL7xq'; // TODO: change
-    const userRef = doc(db, `users/${userID}`);
-    onMount(async () => {
-        const user = await getDoc(userRef);
-    });
+    // const userRef = doc(db, `users/${userID}`);
 
     // path to transactions
-    const transactionsRef = collection(db, `users/${userID}/transactions`);
+    // const transactionsRef = collection(db, `users/${userID}/transactions`);
     const addTransaction = (
         date: Timestamp,
         amount: number,

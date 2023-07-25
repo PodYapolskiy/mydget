@@ -1,4 +1,5 @@
 <script>
+    /* eslint-disable max-len */
     import header from '$lib/images/about_img/hero.jpg';
     import feature1 from '$lib/images/about_img/feat_1.svg';
     import feature2 from '$lib/images/about_img/feat_2.svg';
