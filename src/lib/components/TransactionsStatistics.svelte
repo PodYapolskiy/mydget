@@ -90,4 +90,10 @@
     .custom-color4 {
         color: #575757;
     }
+
+    @media (max-width: 900px) {
+        .flex {
+            flex-direction: column;
+        }
+    }
 </style>
