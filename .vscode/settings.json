@@ -9,5 +9,13 @@
         "source.fixAll.eslint": true
     },
 
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+
+    // Enhance sveltekit experience https://youtu.be/13v50nLh67Q
+    "workbench.editor.labelFormat": "short",
+    "explorer.compactFolders": false,
+    "explorer.sortOrder": "filesFirst",
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.color": "#43A047",
+    "workbench.tree.indent": 12
 }

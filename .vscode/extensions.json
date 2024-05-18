@@ -19,6 +19,10 @@
         "svelte.svelte-vscode",
         "ardenivanov.svelte-intellisense",
         "fivethree.vscode-svelte-snippets",
-        "pivaszbs.svelte-autoimport"
+        "pivaszbs.svelte-autoimport",
+
+        // Design
+        "pkief.material-icon-theme",
+        "nickscialli.svelte-dark"
     ]
 }
